@@ -5,19 +5,17 @@
 In this lab we are going to design the network for a highly available two tier web application. The web servers will be deployed in two public subnets across two availability zones having internet connectivity and DB servers will be deployed in two private subnets across two availability zones. The DB servers will use network address translation (NAT) service for accessing internet.
 
 #### Activity 01 – Creating a VPC
-Login to your AWS account and find VPC under Networking & Content Delivery category
-Click on Your VPCs in the side bar and then click on Create VPC
-Did you notice that a VPC (default VPC) was already created! Find out what other resources were
-automatically created for you in VPC and why!
+Login to your AWS account and find VPC under Networking & Content Delivery category.  
+Click on Your VPCs in the side bar and then click on Create VPC.  
+Did you notice that a VPC (default VPC) was already created! Find out what other resources were automatically created for you in VPC and why!  
 Now you need to give a name to your VPC and select a CIDR notation.
-Name tag: MyVPC
-IPv4 CIDR block: 10.0.0.0/16
-IPv4 CIDR block: No IPv6 CIDR Block
-Tenancy: default
-Click on Yes Create
-You should now see your VPC created similar to below picture.
-Select MyVPC and click on Action dropdown. Ensure that Edit DNS Resolution and Edit DNS Hostnames
-are set to Yes.
+* Name tag: MyVPC
+* IPv4 CIDR block: 10.0.0.0/16
+* IPv4 CIDR block: No IPv6 CIDR Block
+* Tenancy: default
+Click on Yes Create, you should now see your VPC created similar to below picture.  
+Select MyVPC and click on Action dropdown. Ensure that Edit DNS Resolution and Edit DNS Hostnames are set to Yes.
+
 #### Activity 02 - Creating Subnets
 We would now create one public and one private subnet in both availability zones for the high
 availability of our resources.
