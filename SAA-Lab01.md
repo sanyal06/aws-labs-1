@@ -19,8 +19,8 @@ Select MyVPC and click on Action dropdown. Ensure that Edit DNS Resolution and E
 #### Activity 02 - Creating Subnets
 
 We would now create one public and one private subnet in both availability zones for the high availability of our resources.
-* Click on Subnets in the sidebar of the VPC Dashboard
-* Click on Create Subnet
+Click on Subnets in the sidebar of the VPC Dashboard, click on Create Subnet
+
 * Name tag: MyPrivateSubnet01
   * VPC: MyVPC
   * Availability Zone: <choose the first one you see>
@@ -49,33 +49,36 @@ _Why is the available number of IPs showing as 251, where are the rest 5 IPs use
 _Why have we created two private and public in different subnets? Should we not create both Public subnets in one AZ and both Private in another AZ?_
 
 #### Activity 03 - Create Internet gateway
-As you might have noticed, there were similar steps taken in creating the Public and Private subnets,
-what differentiates them?
-A public subnet is the one that has a route to internet Gateway in its routing table. So now let's create
-an Internet Gateway.
+As you might have noticed, there were similar steps taken in creating the Public and Private subnets, what differentiates them?
+A public subnet is the one that has a route to internet Gateway in its routing table. So now let's create an Internet Gateway.
 Click on Internet Gateways in the sidebar of VPC Dashboard and then click on Create Internet Gateway.
-Mention Name tag: MyIGW and click on Yes, Create.
-You will see the state of MyIGW as detached as it is not yet attached to a VPC.
+* Name tag: MyIGW
+* Click on Yes, Create.
+
+You will see the state of MyIGW as detached as it is not yet attached to a VPC.  
 Select the MyIGW and click on Attach to VPC, select MyVPC from the dropdown in next pop up and click
 on Yes, Attach.
-#Why was the default VPC not showing in the dropdown.
+
+_Why was the default VPC not showing in the dropdown._
+
 Your screen should now show like the below picture.
 
 #### Activity 04 - Create Route table (public) and assign to relevant Subnets
-Click on Route tables in the side bar, you should see a Route Table already created for you, assigned to
-MyVPC like the below picture.
-Click on Create Route Table, Name tag: MyPublicRoute, VPC: MyVPC and click on Yes, Create. A new
-route table would have come up now. 
-While the MyPublicRoute selected, click on Routes tab in the lower half of the screen. You would see
-that it already has an entry for local traffic. We now should add the route entry meant for internet.
+
+Click on Route tables in the side bar, you should see a Route Table already created for you. It is the main route table and is assigned to all the subnets in the MyVPC unless you assign them to other route table explicitly.
+* Click on Create Route Table, 
+* Name tag: MyPublicRoute
+* VPC: MyVPC
+* Click on Yes, Create.  
+A new route table would have come up now.  
+While the MyPublicRoute selected, click on Routes tab in the lower half of the screen. You would see that it already has an entry for local traffic. We now should add the route entry meant for internet.  
 Click on Edit and then on Add route. Fill in the below details in the new blank route table entry.
-Destination: 0.0.0.0/0
-Target: Internet Gateway (you would see the internet gateway name in the drop down)
-Click on Save routes, your configuration should look like below picture.
-This way we have added an entry to internet in our public route table, now is the time to assign the
+* Destination: 0.0.0.0/0
+* Target: Internet Gateway (you would see the internet gateway name in the drop down)
+Click on Save routes, this way we have added an entry to internet in our public route table, now is the time to assign the
 route table to our public subnets.
-Click on the Subnet Associations tab right next to the Routes tab.
-#You would see that all four subnets that you created are associated with the main route table, why?
+Click on the Subnet Associations tab right next to the Routes tab.  
+_You would see that all four subnets that you created are associated with the main route table, why?_
 Click on Edit subnet associations and select the two Public Subnets that you created. Save.
 The subnet association tab should now look like below picture.
 Let us now create three different ‘Security Groups’ for application server, database and load balancer.
