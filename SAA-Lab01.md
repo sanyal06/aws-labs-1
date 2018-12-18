@@ -22,25 +22,25 @@ We would now create one public and one private subnet in both availability zones
 * Click on Subnets in the sidebar of the VPC Dashboard
 * Click on Create Subnet
 * Name tag: MyPrivateSubnet01
- * VPC: MyVPC
- * Availability Zone: <choose the first one you see>
- * IPv4 CIDR block: 10.0.1.0/24
+  * VPC: MyVPC
+  * Availability Zone: <choose the first one you see>
+  * IPv4 CIDR block: 10.0.1.0/24
   
 Click on Yes, Create. Your new subnet should have been created now and show up on the screen.  
 Repeat the same steps to create 3 more Subnets with below configuration.
 
 * Name tag: MyPrivateSubnet02
- * VPC: MyVPC
- * Availability Zone: <choose the second one you see>
- * IPv4 CIDR block: 10.0.2.0/24
+  * VPC: MyVPC
+  * Availability Zone: <choose the second one you see>
+  * IPv4 CIDR block: 10.0.2.0/24
 * Name tag: MyPublicSubnet01
- * VPC: MyVPC
- * Availability Zone: <choose the first one you see>
- * IPv4 CIDR block: 10.0.3.0/24
+  * VPC: MyVPC
+  * Availability Zone: <choose the first one you see>
+  * IPv4 CIDR block: 10.0.3.0/24
 * Name tag: MyPublicSubnet02
- * VPC: MyVPC
- * Availability Zone: <choose the second one you see>
- * IPv4 CIDR block: 10.0.4.0/24
+  * VPC: MyVPC
+  * Availability Zone: <choose the second one you see>
+  * IPv4 CIDR block: 10.0.4.0/24
   
 Once all the subnets are created, select MyPublicSubnet01 and click on the Subnet Actions dropdown; go to Modify auto-assign IP settings and check Enable auto-assign public IPv4 address box.  
 Click on Save. Repeat the same step for MyPublicsubnet02 as well. Your four new subnets should be visible to you in subnet section similar to the below picture.
