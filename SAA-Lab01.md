@@ -1,11 +1,10 @@
-## Designing a Highly Available Network with Custom VPC
+# Designing a Highly Available Network with Custom VPC
 
-**VPC Lab – Part 01 of 02**
+### VPC Lab – Part 01 of 02
 
-In this lab we are going to design the network for a highly available two tier web application. The web servers will be deployed in two public subnets across two availability zones having internet connectivity and DB servers will be
-deployed in two private subnets across two availability zones. The DB servers will use network address translation (NAT) service for accessing internet.
+In this lab we are going to design the network for a highly available two tier web application. The web servers will be deployed in two public subnets across two availability zones having internet connectivity and DB servers will be deployed in two private subnets across two availability zones. The DB servers will use network address translation (NAT) service for accessing internet.
 
-Activity 01 – Creating a VPC
+#### Activity 01 – Creating a VPC
 Login to your AWS account and find VPC under Networking & Content Delivery category
 Click on Your VPCs in the side bar and then click on Create VPC
 Did you notice that a VPC (default VPC) was already created! Find out what other resources were
@@ -19,7 +18,7 @@ Click on Yes Create
 You should now see your VPC created similar to below picture.
 Select MyVPC and click on Action dropdown. Ensure that Edit DNS Resolution and Edit DNS Hostnames
 are set to Yes.
-Activity 02 - Creating Subnets
+#### Activity 02 - Creating Subnets
 We would now create one public and one private subnet in both availability zones for the high
 availability of our resources.
 Click on Subnets in the sidebar of the VPC Dashboard
@@ -50,7 +49,8 @@ You four new subnets should be visible to you in subnet section similar to the b
 #why is the available number of IPs showing as 251, where are the rest 5 IPs used?
 #Why have we created two private and public in different subnets? Should we not create both Public
 subnets in one AZ and both Private in another AZ?
-Activity 03 - Create Internet gateway
+
+#### Activity 03 - Create Internet gateway
 As you might have noticed, there were similar steps taken in creating the Public and Private subnets,
 what differentiates them?
 A public subnet is the one that has a route to internet Gateway in its routing table. So now let's create
@@ -63,7 +63,7 @@ on Yes, Attach.
 #Why was the default VPC not showing in the dropdown.
 Your screen should now show like the below picture.
 
-Activity 04 - Create Route table (public) and assign to relevant Subnets
+#### Activity 04 - Create Route table (public) and assign to relevant Subnets
 Click on Route tables in the side bar, you should see a Route Table already created for you, assigned to
 MyVPC like the below picture.
 Click on Create Route Table, Name tag: MyPublicRoute, VPC: MyVPC and click on Yes, Create. A new
@@ -122,7 +122,9 @@ In ideal scenario these rules should look like the one below. Can you identify t
 For now, our VPC configuration is complete. The instances launched in our public subnets should have
 access to internet and the instances in our private subnet should not. We would verify the same in the
 next section.
-VPC Lab – Part 02 of 02
+  
+### VPC Lab – Part 02 of 02
+
 Let us switch to EC2 Dashboard now and click on Launch Instance.
 Select the “Microsoft Windows Server 2016 Base”
 Select the t2.micro instance type and click on Next.
