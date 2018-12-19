@@ -75,7 +75,8 @@ Click on Route tables in the side bar, you should see a Route Table already crea
   * VPC: MyVPC
 * Click on Yes, Create.
 
-A new route table would have come up now.  
+A new route table would have come up now.
+
 While the MyPublicRoute selected, click on Routes tab in the lower half of the screen. You would see that it already has an entry for local traffic. We now should add the route entry meant for internet.
 Click on Edit and then on Add route. Fill in the below details in the new blank route table entry.
 
@@ -90,7 +91,7 @@ This way we have added an entry to internet in our public route table, now is th
 
 * Click on the Subnet Associations tab right next to the Routes tab.
 
-#You would see that all four subnets that you created are associated with the main route table, why?
+_You would see that all four subnets that you created are associated with the main route table, why?_
 
 * Click on Edit subnet associations and select the two Public Subnets that you created. Save.
 
@@ -102,20 +103,20 @@ Let us now create three different 'Security Groups' for bastion hosts, applicati
 In the navigation pane find and click on 'Security Groups'
 
 * Click on 'Create Security Group'
- * Security group name*: My-App-SG
- * Description*: This SG is to be used for application servers.
- * VPC: MyVPC
- * Click on Create
+	* Security group name*: My-App-SG
+	* Description*: This SG is to be used for application servers.
+	* VPC: MyVPC
+	* Click on Create
 
 Create two more security groups with following configurations --
 
 * Security group name*: My-DB-SG
- * Description*: This SG is to be used for database servers.
- * VPC: MyVPC
+	* Description*: This SG is to be used for database servers.
+	* VPC: MyVPC
 
 * Security group name*: My-ALB-SG
- * Description*: This SG is to be used for application load balancers.
- * VPC: MyVPC
+  * Description*: This SG is to be used for application load balancers.
+  * VPC: MyVPC
 
 * Security group name*: My-BastionHost-SG
  * Description*: This SG is to be used for bastions hosts.
