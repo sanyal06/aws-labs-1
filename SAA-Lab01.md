@@ -137,7 +137,7 @@ For now, our VPC configuration is complete. The instances launched in our public
 VPC Lab -- Part 02 of 02
 -----------------------
 
-#### Activity 05 -- Creating EC2 instances
+#### Activity 05 - Creating EC2 instances
 
 Let us switch to EC2 Dashboard now and click on Launch Instance.
 
@@ -189,7 +189,7 @@ Go back to your EC2 instance page. You should see your two instances.
 _Did you notice that your MyAppServer has got a public IP and public DNS while MyDBServer has not, why?_
 _Why are both are running in the same AZ?_
 
-#### Activity 06 -- Verifying the connectivity
+#### Activity 06 - Verifying the connectivity
 
 We now have created two EC2 instances one in each public and private subnet. We would now verify whether our network configuration is working as desired.
 
@@ -231,13 +231,13 @@ As expected, you would see that it has an entry for local traffic. We now should
 So, you have now created a NAT Gateway which is a managed service by Amazon and assigned it to the route table which is assigned to your private subnets. This way the EC2 instances created in private subnets would get the outbound access to internet for downloading updates/patches etc.
 Let us verify the same by going back and accessing internet from the instance in private subnet. It should work now if you have followed the steps carefully.
 
-#### Activity 07 -- Clean up
+#### Activity 07 - Clean up
 
 Let's clean up. Follow the order or you will get dependency errors.
 
 * Terminate both the instances.
 * Delete NAT Gateway (deleting NAT Gateway might take a minute or two, keep refreshing the page till the time you see it is deleted)
-* Release the Elastic IP that was created for your NAT Gateway. (it will not be released until the NAT gateway is deleted)
+* Release the Elastic IP that was created for your NAT Gateway (it will not be released until the NAT gateway is deleted).
 
 ***The NAT Gateway is a chargeable resource and typically it is INR 5 to 6 per hour, ensure you delete it within an hour of creation. You would need to pay this amount once AWS sends you the bill at the end of month. Elastic IPs are chargeable resources if they are lying unused, there will be no fee as long as you delete it post NAT Gateway deletion.***
 
