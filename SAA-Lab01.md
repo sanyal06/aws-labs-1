@@ -64,29 +64,24 @@ _Why was the default VPC not showing in the dropdown._
 Your screen should now show like the below picture.
 ![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image006.png)
 
-### Activity 04 - Create Route table (public) and assign to relevant Subnets
+#### Activity 04 - Create Route table (public) and assign to relevant Subnets
 
 Click on Route tables in the side bar, you should see a Route Table already created for you, assigned to MyVPC like the below picture.
 
 ![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image008.png)
 
-- Click on Create Route Table,
+* Click on Create Route Table
+  * Name tag: MyPublicRoute
+  * VPC: MyVPC
+* Click on Yes, Create.
 
-- Name tag: MyPublicRoute
-
-- VPC: MyVPC
-
-- Click on Yes, Create.
-
-A new route table would have come up now.  
+A new route table would have come up now.
 
 While the MyPublicRoute selected, click on Routes tab in the lower half of the screen. You would see that it already has an entry for local traffic. We now should add the route entry meant for internet.
-
 Click on Edit and then on Add route. Fill in the below details in the new blank route table entry.
 
-- Destination: 0.0.0.0/0
-
-- Target: Internet Gateway (you would see the internet gateway name in the drop down)
+* Destination: 0.0.0.0/0
+* Target: Internet Gateway (you would see the internet gateway name in the drop down)
 
 Click on Save routes, your configuration should look like below picture.
 
@@ -94,59 +89,45 @@ Click on Save routes, your configuration should look like below picture.
 
 This way we have added an entry to internet in our public route table, now is the time to assign the route table to our public subnets.
 
-- Click on the Subnet Associations tab right next to the Routes tab.
+* Click on the Subnet Associations tab right next to the Routes tab.
 
-#You would see that all four subnets that you created are associated with the main route table, why?
+_You would see that all four subnets that you created are associated with the main route table, why?_
 
-- Click on Edit subnet associations and select the two Public Subnets that you created. Save.
+* Click on Edit subnet associations and select the two Public Subnets that you created. Save.
 
 The subnet association tab should now look like below picture.
 
 ![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image012.png)
 
 Let us now create three different 'Security Groups' for bastion hosts, application server, database and load balancer. We would leverage them in coming labs.
-
 In the navigation pane find and click on 'Security Groups'
 
-- Click on 'Create Security Group'
-
-o Security group name*: My-App-SG
-
-o Description*: This SG is to be used for application servers.
-
-o VPC: MyVPC
-
-o Click on Create
+* Click on 'Create Security Group'
+	* Security group name*: My-App-SG
+	* Description*: This SG is to be used for application servers.
+	* VPC: MyVPC
+	* Click on Create
 
 Create two more security groups with following configurations --
 
-- Security group name*: My-DB-SG
+* Security group name*: My-DB-SG
+	* Description*: This SG is to be used for database servers.
+	* VPC: MyVPC
 
-o Description*: This SG is to be used for database servers.
+* Security group name*: My-ALB-SG
+  * Description*: This SG is to be used for application load balancers.
+  * VPC: MyVPC
 
-o VPC: MyVPC
-
-- Security group name*: My-ALB-SG
-
-o Description*: This SG is to be used for application load balancers.
-
-o VPC: MyVPC
-
-- Security group name*: My-BastionHost-SG
-
-o Description*: This SG is to be used for bastions hosts.
-
-o VPC: MyVPC
+* Security group name*: My-BastionHost-SG
+ * Description*: This SG is to be used for bastions hosts.
+ * VPC: MyVPC
 
 Select either of the Security Group now and click on 'Inbound Rules' tab.
-
 Click on 'Edit Rules' and add rules for incoming traffic on the security groups like mentioned below.
 
 ![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image014.png)
 
-These rules are not perfect but will suffice our requirement as of now. We will be changing them in sometime.
-
-In ideal scenario these rules should look like the picture below. Can you identify the difference?
+These rules are not perfect but will suffice our requirement as of now. We will be changing them in sometime. In ideal scenario these rules should look like the picture below. Can you identify the difference?
 
 ![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image016.png)
 
@@ -155,147 +136,107 @@ For now, our VPC configuration is complete. The instances launched in our public
 VPC Lab -- Part 02 of 02
 -----------------------
 
-### Activity 05 -- Creating EC2 instances
+#### Activity 05 -- Creating EC2 instances
 
 Let us switch to EC2 Dashboard now and click on Launch Instance.
 
-- Amazon Machine Image: "Microsoft Windows Server 2016 Base" (free tier ligible)
-
-- Instance Type: t2.micro
-
-- Configure Instance Details: select the below mentioned points and leave everything else as default.
-
-o Network: MyVPC
-
-o Subnet: MyPublicSubnet01
-
-- Add Storage: Leave defaults (Your instance will come with a root volume of 30 GB as you can see in this screen. We can add additional EBS volumes if need be)
-
-- Add Tags
-
-o Key: Name
-
-o Value: MyAppServer
-
-- Configure Security Group: Select existing -> My- App-SG
-
-- Click on Review and Launch.
+* Amazon Machine Image: "Microsoft Windows Server 2016 Base" (free tier eligible)
+* Instance Type: t2.micro
+* Configure Instance Details: select the below mentioned points and leave everything else as default.
+ * Network: MyVPC
+ * Subnet: MyPublicSubnet01
+* Add Storage: Leave defaults (Your instance will come with a root volume of 30 GB as you can see in this screen. We can add additional EBS volumes if need be)
+* Add Tags
+ * Key: Name
+ * Value: MyAppServer
+* Configure Security Group: Select existing -> My-App-SG
+* Click on Review and Launch.
 
 On the next page ensure that your AMI is free tier eligible and Instance Type is showing as t2.micro.
 
-- Click on Launch.
+* Click on Launch.
 
 On the next window, create a new Key Pair, Key pair name: mykey and then Download Key pair.
 
 Finally click on Launch Instance
 
 We have just created an EC2 instance in our public subnet, now we would create an EC2 instance in private subnet following similar steps.
-
 Go back to EC2 Dashboard now and click on Launch Instance.
 
-- Amazon Machine Image: "Microsoft Windows Server 2016 Base" (free tier ligible)
-
-- Instance Type: t2.micro
-
-- Configure Instance Details: select the below mentioned points and leave everything else as default.
-
-o Network: MyVPC
-
-o Subnet: MyPrivateSubnet01
-
-- Add Storage: Leave defaults (Your instance will come with a root volume of 30 GB as you can see in this screen. We can add additional EBS volumes if need be)
-
-- Add Tags
-
-o Key: Name
-
-o Value: MyDBServer
-
-- Configure Security Group: Select existing -> My- DB-SG
-
-- Click on Review and Launch.
+* Amazon Machine Image: "Microsoft Windows Server 2016 Base" (free tier eligible)
+* Instance Type: t2.micro
+* Configure Instance Details: select the below mentioned points and leave everything else as default.
+ * Network: MyVPC
+ * Subnet: MyPrivateSubnet01
+* Add Storage: Leave defaults (Your instance will come with a root volume of 30 GB as you can see in this screen. We can add additional EBS volumes if need be)
+* Add Tags
+ * Key: Name
+ * Value: MyDBServer
+* Configure Security Group: Select existing -> My-DB-SG
+* Click on Review and Launch.
 
 On the next page check that your AMI is free tier eligible and Instance Type is showing as t2.micro.
 
-- Click on Launch.
+* Click on Launch.
 
 On the next window, select to use existing Key Pair 'mykey'.
 
-- Click on Launch Instance
+* Click on Launch Instance
 
 Go back to your EC2 instance page. You should see your two instances.
 
-#Did you notice that your MyAppServer has got a public IP and public DNS while MyDBServer has not, why?
+_Did you notice that your MyAppServer has got a public IP and public DNS while MyDBServer has not, why?_
+_Why are both are running in the same AZ?_
 
-#Why are both are running in the same AZ?
-
-### Activity 06 -- Verifying the connectivity
+#### Activity 06 -- Verifying the connectivity
 
 We now have created two EC2 instances one in each public and private subnet. We would now verify whether our network configuration is working as desired.
 
 Let us RDP to the MyAppServer.
 
-- Select the MyAppServer in the dashboard and click on 'Connect'
-
-- You now have to mention the path of your 'key pair' and decrypt the windows password.
-
-- Get the login credentials and login to the instance.
+* Select the MyAppServer in the dashboard and click on 'Connect'
+* You now have to mention the path of your 'key pair' and decrypt the windows password.
+* Get the login credentials and login to the instance.
 
 Once you are logged into your MyAppServer EC2 instance, you may verify if the machine can reach internet.
 
 In the above step you connected to your EC2 instance in public subnet and verified that it had internet connectivity. Our next step would be login to the EC2 instance launched in the private subnet and verify that it should not have internet connectivity.
-
 We will use our public EC2 instance as a bastion host (jump box) to login to the instance in the private subnet. In ideal scenario we should have created another EC2 instance as bastion host, we are using the 'MyAppServer' as jump server just to minimize cost and to be in free tier limits as long as possible in the lab exercise.
 
-- Retrieve the password for the private instance using the AWS management console and initiate an RDP session from within the public instance.
+* Retrieve the password for the private instance using the AWS management console and initiate an RDP session from within the public instance.
 
 Let us quickly try to check to see if this EC2 instance can reach internet. The easiest way is by pinging google.com
-
 In all possibilities, the connection should not work. This proves that your MyDBServer in MyPrivatesubnet01 does not have direct access to internet. Keep the session opened. In the next steps, we would enable NATing service for private subnets to give one-way internet access.
 
-- Go back to your VPC dashboard.
+* Go back to your VPC dashboard.
+* Click on NAT Gateways in the sidebar of VPC Dashboard and then click on Create NAT Gateway.
+* Select the following configurations on the next page.
+ * Subnet: MyPublicSubnet01 (select from the dropdown)
+ * Elastic IP Allocation ID: Create New EIP
+* Click on Create a NAT Gateway.
 
-- Click on NAT Gateways in the sidebar of VPC Dashboard and then click on Create NAT Gateway.
-
-- Select the following configurations on the next page.
-
-- Subnet: MyPublicSubnet01 (select from the dropdown)
-
-- Elastic IP Allocation ID: Create New EIP
-
-- Click on Create a NAT Gateway.
-
-#why have you created this NAT Gateway in a public subnet.
-
-#why did you select MyPublicSubnet01 and not MyPublicSubnet02.
+_Why have you created this NAT Gateway in a public subnet?_
+_Why did you select MyPublicSubnet01 and not MyPublicSubnet02?_
 
 Now as your NAT Gateway has been created, we will add this in the private route table.
 
-- Go to Route Tables, create a new route table "MyPrivateRoute" and assign it to the two Private Subnets (Follow the similar process as you did in activity 3).
-
+* Go to Route Tables, create a new route table "MyPrivateRoute" and assign it to the two Private Subnets (Follow the similar process as you did in activity 3).
 As expected, you would see that it has an entry for local traffic. We now should add the route entry meant for internet.
-
-- Click on Edit and then on Add Another Route. Fill in the below details in the new blank route table entry.
-
-o Destination: 0.0.0.0/0
-
-o Target: NAT Gateway (Select the one you created)
-
-- Click on save.
+* Click on Edit and then on Add Another Route. Fill in the below details in the new blank route table entry.
+ * Destination: 0.0.0.0/0
+ * Target: NAT Gateway (Select the one you created)
+* Click on save.
 
 So, you have now created a NAT Gateway which is a managed service by Amazon and assigned it to the route table which is assigned to your private subnets. This way the EC2 instances created in private subnets would get the outbound access to internet for downloading updates/patches etc.
-
 Let us verify the same by going back and accessing internet from the instance in private subnet. It should work now if you have followed the steps carefully.
 
-### Activity 07 -- Clean up
+#### Activity 07 -- Clean up
 
 Let's clean up. Follow the order or you will get dependency errors.
 
-- Terminate both the instances.
-
-- Delete NAT Gateway (deleting NAT Gateway might take a minute or two, keep refreshing the page till the time you see it is deleted)
-
-- Release the Elastic IP that was created for your NAT Gateway. (it will not be released until the NAT gateway is deleted)
+* Terminate both the instances.
+* Delete NAT Gateway (deleting NAT Gateway might take a minute or two, keep refreshing the page till the time you see it is deleted)
+* Release the Elastic IP that was created for your NAT Gateway. (it will not be released until the NAT gateway is deleted)
 
 ***The NAT Gateway is a chargeable resource and typically it is INR 5 -- 6 per hour, ensure you delete it within an hour of creation. You would need to pay this amount once AWS sends you the bill at the end of month. Elastic IPs are chargeable resources if they are lying unused, there will be no fee as long as you delete it post NAT Gateway deletion.***
 
