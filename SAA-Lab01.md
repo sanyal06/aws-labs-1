@@ -7,14 +7,17 @@ In this lab we are going to design the network for a highly available two tier w
 #### Activity 01 – Creating a VPC
 Login to your AWS account and find VPC under Networking & Content Delivery category.  
 Click on Your VPCs in the side bar and then click on Create VPC.  
-Did you notice that a VPC (default VPC) was already created! Find out what other resources were automatically created for you in VPC and why!  
+_Did you notice that a VPC (default VPC) was already created? Find out what other resources were automatically created for you in VPC and why._ 
 Now you need to give a name to your VPC and select a CIDR notation.
 * Name tag: MyVPC
 * IPv4 CIDR block: 10.0.0.0/16
 * IPv4 CIDR block: No IPv6 CIDR Block
 * Tenancy: default
-Click on Yes Create, you should now see your VPC created similar to below picture.  
-Select MyVPC and click on Action dropdown. Ensure that Edit DNS Resolution and Edit DNS Hostnames are set to Yes.
+* Click on Yes Create. 
+You should now see your VPC created similar to below picture.
+
+Select MyVPC and click on Action drop-down. 
+Ensure that Edit DNS Resolution and Edit DNS Hostnames are set to Yes.
 
 #### Activity 02 - Creating Subnets
 
@@ -45,7 +48,7 @@ Repeat the same steps to create 3 more Subnets with below configuration.
 Once all the subnets are created, select MyPublicSubnet01 and click on the Subnet Actions dropdown; go to Modify auto-assign IP settings and check Enable auto-assign public IPv4 address box.  
 Click on Save. Repeat the same step for MyPublicsubnet02 as well. Your four new subnets should be visible to you in subnet section similar to the below picture.
 
-_Why is the available number of IPs showing as 251, where are the rest 5 IPs used?_
+_Why is the available number of IPs showing as 251, where are the rest 5 IPs used?_  
 _Why have we created two private and public in different subnets? Should we not create both Public subnets in one AZ and both Private in another AZ?_
 
 #### Activity 03 - Create Internet gateway
@@ -56,7 +59,7 @@ Click on Internet Gateways in the sidebar of VPC Dashboard and then click on Cre
 * Click on Yes, Create.
 
 You will see the state of MyIGW as detached as it is not yet attached to a VPC.  
-Select the MyIGW and click on Attach to VPC, select MyVPC from the dropdown in next pop up and click
+Select the MyIGW and click on Attach to VPC, select MyVPC from the drop-down in next pop up and click
 on Yes, Attach.
 
 _Why was the default VPC not showing in the dropdown._
@@ -106,21 +109,19 @@ In the navigation pane find and click on 'Security Groups'
 	* Security group name*: My-App-SG
 	* Description*: This SG is to be used for application servers.
 	* VPC: MyVPC
-	* Click on Create
+* Click on Create
 
 Create two more security groups with following configurations --
 
 * Security group name*: My-DB-SG
 	* Description*: This SG is to be used for database servers.
 	* VPC: MyVPC
-
 * Security group name*: My-ALB-SG
-  * Description*: This SG is to be used for application load balancers.
-  * VPC: MyVPC
-
+	* Description*: This SG is to be used for application load balancers.
+	* VPC: MyVPC
 * Security group name*: My-BastionHost-SG
- * Description*: This SG is to be used for bastions hosts.
- * VPC: MyVPC
+	* Description*: This SG is to be used for bastions hosts.
+	* VPC: MyVPC
 
 Select either of the Security Group now and click on 'Inbound Rules' tab.
 Click on 'Edit Rules' and add rules for incoming traffic on the security groups like mentioned below.
@@ -143,12 +144,12 @@ Let us switch to EC2 Dashboard now and click on Launch Instance.
 * Amazon Machine Image: "Microsoft Windows Server 2016 Base" (free tier eligible)
 * Instance Type: t2.micro
 * Configure Instance Details: select the below mentioned points and leave everything else as default.
- * Network: MyVPC
- * Subnet: MyPublicSubnet01
+	* Network: MyVPC
+	* Subnet: MyPublicSubnet01
 * Add Storage: Leave defaults (Your instance will come with a root volume of 30 GB as you can see in this screen. We can add additional EBS volumes if need be)
 * Add Tags
- * Key: Name
- * Value: MyAppServer
+	* Key: Name
+	* Value: MyAppServer
 * Configure Security Group: Select existing -> My-App-SG
 * Click on Review and Launch.
 
@@ -166,12 +167,12 @@ Go back to EC2 Dashboard now and click on Launch Instance.
 * Amazon Machine Image: "Microsoft Windows Server 2016 Base" (free tier eligible)
 * Instance Type: t2.micro
 * Configure Instance Details: select the below mentioned points and leave everything else as default.
- * Network: MyVPC
- * Subnet: MyPrivateSubnet01
+	* Network: MyVPC
+	* Subnet: MyPrivateSubnet01
 * Add Storage: Leave defaults (Your instance will come with a root volume of 30 GB as you can see in this screen. We can add additional EBS volumes if need be)
 * Add Tags
- * Key: Name
- * Value: MyDBServer
+	* Key: Name
+	* Value: MyDBServer
 * Configure Security Group: Select existing -> My-DB-SG
 * Click on Review and Launch.
 
@@ -238,7 +239,7 @@ Let's clean up. Follow the order or you will get dependency errors.
 * Delete NAT Gateway (deleting NAT Gateway might take a minute or two, keep refreshing the page till the time you see it is deleted)
 * Release the Elastic IP that was created for your NAT Gateway. (it will not be released until the NAT gateway is deleted)
 
-***The NAT Gateway is a chargeable resource and typically it is INR 5 -- 6 per hour, ensure you delete it within an hour of creation. You would need to pay this amount once AWS sends you the bill at the end of month. Elastic IPs are chargeable resources if they are lying unused, there will be no fee as long as you delete it post NAT Gateway deletion.***
+***The NAT Gateway is a chargeable resource and typically it is INR 5 to 6 per hour, ensure you delete it within an hour of creation. You would need to pay this amount once AWS sends you the bill at the end of month. Elastic IPs are chargeable resources if they are lying unused, there will be no fee as long as you delete it post NAT Gateway deletion.***
 
 Leave the other resources. They are free and we will leverage them in subsequent labs.
 
