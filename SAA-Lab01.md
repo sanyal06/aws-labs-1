@@ -118,11 +118,11 @@ Create two more security groups with following configurations --
 Select either of the Security Group now and click on 'Inbound Rules' tab.
 Click on 'Edit Rules' and add rules for incoming traffic on the security groups like mentioned below.
 
-![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image014.png)
+![](https://github.com/ashydv/aws-labs/blob/master/images/sg1.png)
 
 These rules are not perfect but will suffice our requirement as of now. We will be changing them in sometime. In ideal scenario these rules should look like the picture below. Can you identify the difference?
 
-![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image016.png)
+![](https://github.com/ashydv/aws-labs/blob/master/images/sg2.png)
 
 For now, our VPC configuration is complete. The instances launched in our public subnets should have access to Internet and the instances in our private subnet should not. We would verify the same in the next section.
 
