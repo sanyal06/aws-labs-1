@@ -2,7 +2,7 @@
 
 ### VPC Lab – Part 01 of 02
 
-In this lab we are going to design the network for a highly available two tier web application. The web servers will be deployed in two public subnets across two availability zones having internet connectivity and DB servers will be deployed in two private subnets across two availability zones. The DB servers will use network address translation (NAT) service for accessing internet.
+In this lab we are going to design the network for a highly available two tier web application. The web servers will be deployed in two public subnets across two availability zones having Internet connectivity and DB servers will be deployed in two private subnets across two availability zones. The DB servers will use network address translation (NAT) service for accessing Internet.
 
 #### Activity 01 – Creating a VPC
 Login to your AWS account and find VPC under Networking & Content Delivery category.  
@@ -53,7 +53,7 @@ _Why have we created two private and public in different subnets? Should we not 
 
 #### Activity 03 - Create Internet gateway
 As you might have noticed, there were similar steps taken in creating the Public and Private subnets, what differentiates them?
-A public subnet is the one that has a route to internet Gateway in its routing table. So now let's create an Internet Gateway.
+A public subnet is the one that has a route to Internet Gateway in its routing table. So now let's create an Internet Gateway.
 Click on Internet Gateways in the sidebar of VPC Dashboard and then click on Create Internet Gateway.
 * Name tag: MyIGW
 * Click on Yes, Create.
@@ -64,14 +64,11 @@ on Yes, Attach.
 
 _Why was the default VPC not showing in the dropdown._
 
-Your screen should now show like the below picture.
-![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image006.png)
+
 
 #### Activity 04 - Create Route table (public) and assign to relevant Subnets
 
-Click on Route tables in the side bar, you should see a Route Table already created for you, assigned to MyVPC like the below picture.
-
-![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image008.png)
+Click on Route tables in the side bar, you should see a Route Table already created for you, assigned to MyVPC.
 
 * Click on Create Route Table
   * Name tag: MyPublicRoute
@@ -80,17 +77,15 @@ Click on Route tables in the side bar, you should see a Route Table already crea
 
 A new route table would have come up now.
 
-While the MyPublicRoute selected, click on Routes tab in the lower half of the screen. You would see that it already has an entry for local traffic. We now should add the route entry meant for internet.
+While the MyPublicRoute selected, click on Routes tab in the lower half of the screen. You would see that it already has an entry for local traffic. We now should add the route entry meant for Internet.
 Click on Edit and then on Add route. Fill in the below details in the new blank route table entry.
 
 * Destination: 0.0.0.0/0
-* Target: Internet Gateway (you would see the internet gateway name in the drop down)
+* Target: Internet Gateway (you would see the Internet gateway name in the drop down)
 
-Click on Save routes, your configuration should look like below picture.
+Click on Save routes.
 
-![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image010.png)
-
-This way we have added an entry to internet in our public route table, now is the time to assign the route table to our public subnets.
+This way we have added an entry to Internet in our public route table, now is the time to assign the route table to our public subnets.
 
 * Click on the Subnet Associations tab right next to the Routes tab.
 
@@ -98,9 +93,6 @@ _You would see that all four subnets that you created are associated with the ma
 
 * Click on Edit subnet associations and select the two Public Subnets that you created. Save.
 
-The subnet association tab should now look like below picture.
-
-![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image012.png)
 
 Let us now create three different 'Security Groups' for bastion hosts, application server, database and load balancer. We would leverage them in coming labs.
 In the navigation pane find and click on 'Security Groups'
@@ -132,7 +124,7 @@ These rules are not perfect but will suffice our requirement as of now. We will 
 
 ![](file:///C:\Users\as831881\AppData\Local\Temp\msohtmlclip1\01\clip_image016.png)
 
-For now, our VPC configuration is complete. The instances launched in our public subnets should have access to internet and the instances in our private subnet should not. We would verify the same in the next section.
+For now, our VPC configuration is complete. The instances launched in our public subnets should have access to Internet and the instances in our private subnet should not. We would verify the same in the next section.
 
 VPC Lab -- Part 02 of 02
 -----------------------
@@ -199,15 +191,15 @@ Let us RDP to the MyAppServer.
 * You now have to mention the path of your 'key pair' and decrypt the windows password.
 * Get the login credentials and login to the instance.
 
-Once you are logged into your MyAppServer EC2 instance, you may verify if the machine can reach internet.
+Once you are logged into your MyAppServer EC2 instance, you may verify if the machine can reach Internet.
 
-In the above step you connected to your EC2 instance in public subnet and verified that it had internet connectivity. Our next step would be login to the EC2 instance launched in the private subnet and verify that it should not have internet connectivity.
+In the above step you connected to your EC2 instance in public subnet and verified that it had Internet connectivity. Our next step would be login to the EC2 instance launched in the private subnet and verify that it should not have Internet connectivity.
 We will use our public EC2 instance as a bastion host (jump box) to login to the instance in the private subnet. In ideal scenario we should have created another EC2 instance as bastion host, we are using the 'MyAppServer' as jump server just to minimize cost and to be in free tier limits as long as possible in the lab exercise.
 
 * Retrieve the password for the private instance using the AWS management console and initiate an RDP session from within the public instance.
 
-Let us quickly try to check to see if this EC2 instance can reach internet. The easiest way is by pinging google.com
-In all possibilities, the connection should not work. This proves that your MyDBServer in MyPrivatesubnet01 does not have direct access to internet. Keep the session opened. In the next steps, we would enable NATing service for private subnets to give one-way internet access.
+Let us quickly try to check to see if this EC2 instance can reach Internet. The easiest way is by pinging google.com
+In all possibilities, the connection should not work. This proves that your MyDBServer in MyPrivatesubnet01 does not have direct access to Internet. Keep the session opened. In the next steps, we would enable NATing service for private subnets to give one-way Internet access.
 
 * Go back to your VPC dashboard.
 * Click on NAT Gateways in the sidebar of VPC Dashboard and then click on Create NAT Gateway.
@@ -221,15 +213,15 @@ _Why did you select MyPublicSubnet01 and not MyPublicSubnet02?_
 
 Now as your NAT Gateway has been created, we will add this in the private route table.
 
-* Go to Route Tables, create a new route table "MyPrivateRoute" and assign it to the two Private Subnets (Follow the similar process as you did in activity 3).
-As expected, you would see that it has an entry for local traffic. We now should add the route entry meant for internet.
+* Go to Route Tables, create a new route table "MyPrivateRoute" and assign it to the two Private Subnets (Follow the similar process as you did in activity 3.  
+As expected, you would see that it has an entry for local traffic. We now should add the route entry meant for Internet.
 * Click on Edit and then on Add Another Route. Fill in the below details in the new blank route table entry.
  * Destination: 0.0.0.0/0
  * Target: NAT Gateway (Select the one you created)
 * Click on save.
 
-So, you have now created a NAT Gateway which is a managed service by Amazon and assigned it to the route table which is assigned to your private subnets. This way the EC2 instances created in private subnets would get the outbound access to internet for downloading updates/patches etc.
-Let us verify the same by going back and accessing internet from the instance in private subnet. It should work now if you have followed the steps carefully.
+So, you have now created a NAT Gateway which is a managed service by Amazon and assigned it to the route table which is assigned to your private subnets. This way the EC2 instances created in private subnets would get the outbound access to Internet for downloading updates/patches etc.
+Let us verify the same by going back and accessing Internet from the instance in private subnet. It should work now if you have followed the steps carefully.
 
 #### Activity 07 - Clean up
 
@@ -239,7 +231,7 @@ Let's clean up. Follow the order or you will get dependency errors.
 * Delete NAT Gateway (deleting NAT Gateway might take a minute or two, keep refreshing the page till the time you see it is deleted)
 * Release the Elastic IP that was created for your NAT Gateway (it will not be released until the NAT gateway is deleted).
 
-***The NAT Gateway is a chargeable resource and typically it is INR 5 to 6 per hour, ensure you delete it within an hour of creation. You would need to pay this amount once AWS sends you the bill at the end of month. Elastic IPs are chargeable resources if they are lying unused, there will be no fee as long as you delete it post NAT Gateway deletion.***
+***The NAT Gateway is a chargeable resource and typically it is ~USD 0.05/INR 5 to 6 per hour, ensure you delete it within an hour of creation. You would need to pay this amount once AWS sends you the bill at the end of month. Elastic IPs are chargeable resources if they are lying unused, there will be no fee as long as you delete it post NAT Gateway deletion.***
 
 Leave the other resources. They are free and we will leverage them in subsequent labs.
 
