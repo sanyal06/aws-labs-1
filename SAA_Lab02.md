@@ -6,7 +6,7 @@ By the end of this lab exercise you would have created a production ready sample
 
 The below picture is the representation of this lab exercise.
 
- ![](data:image/*;base64,
+ ![](https://github.com/ashydv/aws-labs/blob/master/images/SAA-Lab02-Diagram.PNG)
 
 The main services covered in this lab are –
 
