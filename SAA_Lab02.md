@@ -253,12 +253,16 @@ If your application is reachable by the load balancer endpoint and not through v
 
 You can also now try deleting one/more server in order to verify whether the auto scaling feature is able to spin up instances in response.
 
-Clean up steps –
+### Clean up steps –
+
 Delete the resources in the below order
 
-RDS (do not create a snapshot) – ALB – Auto Scaling Group (takes little time to delete) – Target Group – Launch Configuration.
+ 1 - RDS (do not create a snapshot and do not retain the automated backup files)  
+ 2 - ALB  
+ 3 - Auto Scaling Group (takes little time to delete)  
+ 4 - Target Group – Launch Configuration.
 
+***All the services used in this lab are eligible and covered within the free tier account. There should not be any charge if you delete all the resources within a couple of hours of creation provided you have monthly limits left.***
 
-
-Lab Complete!
+### Lab Complete!
 
