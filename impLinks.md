@@ -7,4 +7,4 @@
 -   [AWS Policy Generator](https://awspolicygen.s3.amazonaws.com/policygen.html)
 -   [TCP/IP, Subnetting brush-up](https://www.youtube.com/watch?v=EkNq4TrHP_U)
 -   [AWSomeday presentations](https://www.slideshare.net/AmazonWebServices/awsome-day-2019-detroit)
--   [CloudFormatin Templates] (https://aws.amazon.com/cloudformation/aws-cloudformation-templates/)
+-   [CloudFormatin Templates](https://aws.amazon.com/cloudformation/aws-cloudformation-templates)
