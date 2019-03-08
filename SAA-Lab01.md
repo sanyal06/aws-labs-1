@@ -147,7 +147,7 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 | HTTPS  | TCP  | 443  | Anywhere  | 0.0.0.0/0  |
 
 
-These rules are not perfect but will suffice our requirement as of now. We will be changing them in sometime. In ideal scenario these rules should look like the picture below. Can you identify the difference?
+These rules are not perfect but will suffice our requirement as of now. We will be changing them in sometime. In ideal scenario these rules should look like mentioned below. Can you identify the difference?
 
 
 #### My-BastionHost-SG
