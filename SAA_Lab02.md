@@ -246,7 +246,7 @@ Can you restrict it?
 
 ### Activity 06 – Modify the Security Groups to ensure security on incoming traffic
 
-Change the ####My-App-SG#### security group settings as shown below and confirm if it works.
+Change the <b>My-App-SG</b> security group settings as shown below and confirm if it works.
 
 #### My-App-SG
 
