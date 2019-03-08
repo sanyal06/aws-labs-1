@@ -246,8 +246,15 @@ Can you restrict it?
 
 ### Activity 06 – Modify the Security Groups to ensure security on incoming traffic
 
-Change the &#39;My-App-SG&#39; security group settings as shown below and confirm if it works.
+Change the ####My-App-SG#### security group settings as shown below and confirm if it works.
 
+#### My-App-SG
+
+| Type  | Protocol | Port Range  | Source |   |
+| :---:   | :---:   | :---:   | :---:   | :---:   | 
+| HTTP  | TCP  | 80  | Custom  | \<My-ALB-SG>  |
+| HTTPS  | TCP  | 443  | Custom  | \<My-ALB-SG>  |
+| RDP  | TCP  | 3389  | Custom  | \<My-BastionHost-SG>  |
 
 If your application is reachable by the load balancer endpoint and not through visiting the IP addresses or EC2 instances in browser, you have done it well.
 
