@@ -136,7 +136,7 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| MYSQL/Aurora  | TCP  | 3306  | Custom  | <My-App-SG>  |
+| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<My-App-SG>  |
 | RDP  | TCP  | 3389  | Anywhere  | 0.0.0.0/0  |
 
 #### My-ALB-SG
