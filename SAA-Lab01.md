@@ -168,7 +168,7 @@ These rules are not perfect but will suffice our requirement as of now. We will 
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| MYSQL/Aurora  | TCP  | 3306  | Custom  | <My-App-SG>  |
+| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<My-App-SG>  |
 | RDP  | TCP  | 3389  | Custom  | \<My-BastionHost-SG>  |
 
 #### My-ALB-SG
