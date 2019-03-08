@@ -118,6 +118,34 @@ Create two more security groups with following configurations --
 Select either of the Security Group now and click on 'Inbound Rules' tab.
 Click on 'Edit Rules' and add rules for incoming traffic on the security groups like mentioned below.
 
+#### My-BastionHost-SG
+
+| Type  | Protocol | Port Range  | Source |   |
+| :---:   | :---:   | :---:   | :---:   | :---:   | 
+| RDP  | TCP  | 3389  | Anywhere  | 0.0.0.0/0  |
+
+#### My-App-SG
+
+| Type  | Protocol | Port Range  | Source |   |
+| :---:   | :---:   | :---:   | :---:   | :---:   | 
+| HTTP  | TCP  | 80  | Anywhere  | 0.0.0.0/0  |
+| HTTPS  | TCP  | 443  | Anywhere  | 0.0.0.0/0  |
+| RDP  | TCP  | 3389  | Anywhere  | 0.0.0.0/0  |
+
+#### My-DB-SG
+
+| Type  | Protocol | Port Range  | Source |   |
+| :---:   | :---:   | :---:   | :---:   | :---:   | 
+| MYSQL/Aurora  | TCP  | 3306  | Custom  | <My-App-SG>  |
+| RDP  | TCP  | 3389  | Anywhere  | 0.0.0.0/0  |
+
+#### My-ALB-SG
+
+| Type  | Protocol | Port Range  | Source |   |
+| :---:   | :---:   | :---:   | :---:   | :---:   | 
+| HTTP  | TCP  | 80  | Anywhere  | 0.0.0.0/0  |
+| HTTPS  | TCP  | 443  | Anywhere  | 0.0.0.0/0  |
+
 ![](https://github.com/ashydv/aws-labs/blob/master/images/sg1.png)
 
 These rules are not perfect but will suffice our requirement as of now. We will be changing them in sometime. In ideal scenario these rules should look like the picture below. Can you identify the difference?
