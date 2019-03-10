@@ -1,14 +1,7 @@
 # Designing a Highly Available Network with Custom VPC
 
 ### VPC Lab – Part 01 of 02
-#!/bin/bash
-yum install httpd mysql git -y
-amazon-linux-extras install -y php7.2
-cd /var/www/html
-git clone https://github.com/ashydv/bikerhood.git
-mv /var/www/html/bikerhood/*  /var/www/html/
-service httpd start
-chkconfig httpd on
+
 In this lab we are going to design the network for a highly available two tier web application. The web servers will be deployed in two public subnets across two availability zones having internet connectivity and DB servers will be deployed in two private subnets across two availability zones. The DB servers will use network address translation (NAT) service for accessing internet.
 
 #### Activity 01 – Creating a VPC
