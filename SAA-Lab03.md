@@ -5,6 +5,8 @@ the pictures (.jpg and .png) uploaded in an s3 bucket and saves them in another 
 
 The following diagram illustrates the application flow:
 
+ ![](https://github.com/ashydv/aws-labs/blob/master/images/lambda.PNG)
+
 1.  A user uploads an object to the source bucket in Amazon S3 (object-created event).
 2.  Amazon S3 detects the object-created event.
 3.  Amazon S3 publishes the s3:ObjectCreated:\* event to AWS Lambda by invoking the Lambda function and passing event data as a function parameter.
