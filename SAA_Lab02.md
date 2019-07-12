@@ -72,7 +72,7 @@ Click Next
 - Subnet group: my-db-sg
 - Public accessibility: No
 - Availability zone: No preference
-- VPC security groups: Choose existing VPC security groups \&gt; Add My-DB-SG
+- VPC security groups: Choose existing VPC security groups &gt; Add My-DB-SG
 - Remove the Default one
 
 In the Database options section, configure:
@@ -194,7 +194,7 @@ Your Launch Configuration is created, let us now create the auto scaling group. 
 - Next Configure Notification
 - Add Notification – Create Topic
 - Send a notification to – MyASG\_Topic
-- With these recipients - \&lt;your email ID\&gt;
+- With these recipients - &lt;your email ID&gt;
 - Next Create a Tag with &#39;Key: Name&#39; and &#39;Value: MyAppServer&#39;
 - Review – Create Auto Scaling group
 
