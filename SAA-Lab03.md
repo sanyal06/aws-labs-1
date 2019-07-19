@@ -63,12 +63,13 @@ Click on Lambda > Create a function > Author from scratch
 Click on create function, you should see a congratulations message on the next screen.
 
 We have just created a name/placeholder for our function and selected desired platform, now let us supply the code.
-Scroll to the Function Code section.
+Scroll to the Function Code section.   
+Download the code zip from [here](https://github.com/ashydv/ThumbnailCreation/raw/master/CreateThumbnail.zip) and Scroll to the Function Code section.
 
--   Code entry type: Upload a file from Amazon S3.
+-   Code entry type: Upload a .zip file (upload the Function package you just downloaded)
 -   Runtime: Python 3.6
 -   Handler: `CreateThumbnail.handler`
--   S3 link URL: `https://s3-us-west-2.amazonaws.com/us-west-2-aws-training/awsu-spl/spl-88/scripts/CreateThumbnail.zip`
+
 
 Click on Save on the top of the screen with rest all fields left as default. You should go through the other fields for educating yourselves later.
 
