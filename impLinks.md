@@ -25,9 +25,6 @@ Get Involved
 -   [AWS Events; re:Invent, AWSOME Day, Dev Day, Online TechTalks and may more](https://aws.amazon.com/events/)
 -   [AWS Blog](https://aws.amazon.com/blogs/)
 -   [AWS Whitepapers and Guides](https://aws.amazon.com/whitepapers/)
-
-
-
 -   [Architecting for the Cloud: AWS Best Practices Whitepaper, Feb 2016](https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
 -   [AWS Well-Architected Framework](https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf)
 
