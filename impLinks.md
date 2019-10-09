@@ -32,3 +32,9 @@ Free Digital Training Courses for Serverless:
 -   [Amazon API Gateway for Serverless Applications](https://www.aws.training/Details/eLearning?id=27199)
 -   [AWS Lambda Function Security & Defense in Depth](https://www.aws.training/Details/Video?id=27498)
 -   [Deep Dive: Lambda@Edge](https://www.aws.training/Details/Video?id=27500)
+
+Advanced Developing on AWS
+-   [Amazon Elastic Container Service (ECS) Primer](https://www.aws.training/Details/eLearning?id=30260)
+-   [Amazon Elastic Container Service for Kubernetes (EKS) Primer](https://www.aws.training/Details/eLearning?id=32894)
+-   [Deep Dive on Container Security](https://www.aws.training/Details/Video?id=26841)
+-   [Deep Dive on AWS Fargate: Building Serverless Containers at Scale](https://www.aws.training/Details/Video?id=26855)
