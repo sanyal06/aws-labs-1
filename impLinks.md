@@ -1,7 +1,10 @@
 ## Imp Links
 
--   [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
 -   [AWS CEO on How AWS came to be](https://techcrunch.com/2016/07/02/andy-jassys-brief-history-of-the-genesis-of-aws/)
+-   [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
+-   [Overview of AWS](https://d1.awsstatic.com/whitepapers/aws-overview.pdf)
+
+
 -   [AWS SAA Certification Exam guide](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS_Certified_Solutions_Architect_Associate_Feb_2018_%20Exam_Guide_v1.5.2.pdf?refid=em_140172)
 -   [AWS Training Cources; paid and free digital](https://aws.amazon.com/training/course-descriptions/)
 -   [AWS Cloud Practitioner Essentials](https://www.aws.training/learningobject/curriculum?id=27076)
@@ -17,10 +20,14 @@
 
 -   [CloudFormation Templates](https://aws.amazon.com/cloudformation/aws-cloudformation-templates)
 
--   [AWS Whitepapers and Guides](https://aws.amazon.com/whitepapers/)
--   [AWS Blog](https://aws.amazon.com/blogs/)
-
+Get Involved
+-   [AWS Getting Started](https://aws.amazon.com/getting-started/)
 -   [AWS Events; re:Invent, AWSOME Day, Dev Day, Online TechTalks and may more](https://aws.amazon.com/events/)
+-   [AWS Blog](https://aws.amazon.com/blogs/)
+-   [AWS Whitepapers and Guides](https://aws.amazon.com/whitepapers/)
+
+
+
 -   [Architecting for the Cloud: AWS Best Practices Whitepaper, Feb 2016](https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
 -   [AWS Well-Architected Framework](https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf)
 
