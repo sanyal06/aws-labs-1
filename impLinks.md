@@ -20,7 +20,7 @@
 
 -   [CloudFormation Templates](https://aws.amazon.com/cloudformation/aws-cloudformation-templates)
 
-Get Involved
+Get Involved:
 -   [AWS Getting Started](https://aws.amazon.com/getting-started/)
 -   [AWS Events; re:Invent, AWSOME Day, Dev Day, Online TechTalks and may more](https://aws.amazon.com/events/)
 -   [AWS Blog](https://aws.amazon.com/blogs/)
@@ -37,7 +37,7 @@ Free Digital Training Courses for Serverless:
 -   [AWS Lambda Function Security & Defense in Depth](https://www.aws.training/Details/Video?id=27498)
 -   [Deep Dive: Lambda@Edge](https://www.aws.training/Details/Video?id=27500)
 
-Advanced Developing on AWS
+Advanced Developing on AWS:
 -   [Amazon Elastic Container Service (ECS) Primer](https://www.aws.training/Details/eLearning?id=30260)
 -   [Amazon Elastic Container Service for Kubernetes (EKS) Primer](https://www.aws.training/Details/eLearning?id=32894)
 -   [Deep Dive on Container Security](https://www.aws.training/Details/Video?id=26841)
