@@ -25,3 +25,10 @@
 -   [AWS Well-Architected Framework](https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf)
 
 -   [Revert changes to security groups automatially using Lambda](https://aws.amazon.com/blogs/security/how-to-automatically-revert-and-receive-notifications-about-changes-to-your-amazon-vpc-security-groups/)
+
+Free Digital Training Courses for Serverless:
+-   [AWS Lambda Foundations](https://www.aws.training/Details/eLearning?id=27197)
+-   [Getting into the Serverless Mindset](https://www.aws.training/Details/eLearning?id=27198)
+-   [Amazon API Gateway for Serverless Applications](https://www.aws.training/Details/eLearning?id=27199)
+-   [AWS Lambda Function Security & Defense in Depth](https://www.aws.training/Details/Video?id=27498)
+-   [Deep Dive: Lambda@Edge](https://www.aws.training/Details/Video?id=27500)
