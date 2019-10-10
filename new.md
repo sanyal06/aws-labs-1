@@ -129,16 +129,16 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| HTTP  | TCP  | 80  | Custom  | \<security group id of My-ALB-SG>  |
-| HTTPS  | TCP  | 443  | Custom  | \<security group id of My-ALB-SG>  |
-| SSH  | TCP  | 22  | Custom  | \<security group id of My-BastionHost-SG>  |
+| HTTP  | TCP  | 80  | Custom  | \<sg id of My-ALB-SG>  |
+| HTTPS  | TCP  | 443  | Custom  | \<sg id of My-ALB-SG>  |
+| SSH  | TCP  | 22  | Custom  | \<sg id of My-BastionHost-SG>  |
 
 #### My-DB-SG
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<security group id of My-App-SG>  |
-| SSH  | TCP  | 22  | Custom  | \<security group id of My-BastionHost-SG>  |
+| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<sg id of My-App-SG>  |
+| SSH  | TCP  | 22  | Custom  | \<sg id of My-BastionHost-SG>  |
 
 #### My-ALB-SG
 | Type  | Protocol | Port Range  | Source |   |
