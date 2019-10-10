@@ -11,8 +11,8 @@ The below picture is the representation of this lab exercise.
 The main services covered in this lab are –
 
 - VPC
-- RDS - MySQL
-- EC2 – Auto Scaling, Application Load Balancer
+- RDS: MySQL
+- EC2: Auto Scaling, Application Load Balancer
 - SNS
 
 PS: This lab is in continuation from VPC Lab 01, we consider you already have the VPC and other components from Lab 01 except NAT Gateway. We also have divided this lab in two parts. We will create the required services manually (single point of failure) in the first part and remediate that in part two.
@@ -60,9 +60,9 @@ It will take a little time now to create your RDS instance, we can continue with
 
 ### Activity 02 - Creating a Role
 
-- Open IAM in a new tab and click on &#39;Roles&#39; – &#39;Create role&#39;
+- Open IAM in a new tab and click on 'Roles' – 'Create role'
 - Select type of trusted entity: EC2, go next to permission page
-- Search for &#39;AmazonSSMFullAccess&#39; and go next, skip the tags and go next Review
+- Search for 'AmazonSSMFullAccess' and go next, skip the tags and go next Review
 - Role name: My\_SSM\_Role, Create.
 
 This role will allow the application to use the System Manger feature, more on this later.
