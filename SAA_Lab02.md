@@ -200,7 +200,7 @@ From next screen, create an Application Load Balancer
 - Select the VPC in which you have launched the ASG
 - Select Public Subnets from both AZs. This is a critical step, reconfirm before going forward.
 - Next - Configure Security Settings – Ignore the warning, it is recommending to have SSL certificate.
-- Next - Configure Security Groups. Select My-ALB-SG from existing ones.
+- Next - Configure Security Groups. Select My_ELBSG from existing ones.
 - Next Configure Routing –
 - Target group – Existing Target Group
 - Name – MyTG
@@ -220,15 +220,16 @@ Can you restrict it?
 
 ### Activity 06 – Modify the Security Groups to ensure security on incoming traffic
 
-Change the <b>My-App-SG</b> security group settings as shown below and confirm if it works.
+Update the <b>My_LnxWebSG</b> security group settings as shown below.
 
-#### My-App-SG
+#### My_LnxWebSG
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| HTTP  | TCP  | 80  | Custom  | \<My-ALB-SG>  |
-| HTTPS  | TCP  | 443  | Custom  | \<My-ALB-SG>  |
-| RDP  | TCP  | 3389  | Custom  | \<My-BastionHost-SG>  |
+| HTTP  | TCP  | 80  | Custom  | \<SG ID of My_ELBSG>  |
+| HTTPS  | TCP  | 443  | Custom  | \<SG ID of My_ELBSG>  |
+| SSH  | TCP  | 22  | Custom  | \<SG ID of My_WinBHSG>  |
+| SSH  | TCP  | 22  | Custom  | \<SG ID of My_LnxBHSG>  |
 
 If your application is reachable by the load balancer endpoint and not through visiting the IP addresses or EC2 instances in browser, you have done it well.
 
