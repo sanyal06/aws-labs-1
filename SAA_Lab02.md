@@ -75,10 +75,10 @@ Let us create our application servers now. Go to EC2 Dashboard and click on Laun
 On the Configure Instance Details page select the below mentioned points and leave everything else as default.
 
 - Network: MyVPC
-- Subnet: MyPublicSubnet01
+- Subnet: My_PubSub01
 - IAM Role: My\_SSM\_Role
 
-**Expand the Advance Details section and paste the following script in the user data section. The format of the script is very important, please copy it in text editor and ensure there are no extra line breaks or spaces and then paste in the user data section.**
+**Expand the Advance Details section and paste the following script in the user data section. The format of the script is very important, please ensure there are no extra line breaks or spaces when you paste in the user data section.**
 
 **\*\*\* VV Imp, your lab will fail if you do not do it properly\*\*\***
 ```
@@ -108,7 +108,7 @@ Your instance will come with a root volume of 8 GB as you can see in this screen
 
 - Create a Tag with &#39;Key: Name&#39; and &#39;Value: MyAppServer&#39;
 - Click on Next: Configure Security Group
-- Click on the Select existing security group, find and select &#39;My-App-SG&#39;
+- Click on the Select existing security group, find and select &#39;My_AppSG&#39;
 - Click on Review and Launch.
 - On the next page ensure that your AMI is free tier eligible and Instance Type is showing as t2.micro.
 - Click on Launch.
@@ -117,7 +117,7 @@ You may use your existing key pair from previous lab.
 
 Go to the EC2 dashboard and see your server should be launching.
 
-Once the server is launched, copy its public IP address and open in a browser window, you should see a minimal web page. Click on the settings button to set up database connection.
+Once the server is launched, copy its public IP address and open in a browser window, the page would not load because of the port restrictions in the security group. Go Ahead and open the http port from anywhere in the My_LnxWebSG. You should now see a minimal web page. Click on the settings button to set up database connection.
 
 Go to the RDS dashboard and find out the database connection endpoint
 
@@ -130,7 +130,7 @@ Return to the browser tab with the Inventory application and enter the below inf
 
 Click Save, the application will now connect to the database and will load some pre-fed sample data. Feel free to add, edit and delete inventory information using the web application.
 
-So as of now you have one single EC2 instance serving a web application, it is storing the data in a RDS database. But this instance is a manually created and what will happen if it goes down? The data might remain saved in the database but will be unavailable till the time the app server is/are brought back. The process has to be an automated one rather than manual, EC2 auto scaling is the feature that comes to rescue here!
+So as of now you have one single EC2 instance serving a web application, it is storing the data in a RDS database. But this instance is a manually created and what will happen if it goes down? The data might remain saved in the database but will be unavailable till the time the server is/are brought back. The process has to be an automated one rather than manual, EC2 auto scaling is the feature that comes to rescue here!
 
 Terminate the instance, we are simulating a disaster now 
 
@@ -151,13 +151,13 @@ Go to the Auto Scaling section in your EC2 dashboard and click on Create Launch 
 Go next.
 
 - No additional storage, go next.
-- On the security group page, choose My-App-SG
+- On the security group page, choose My_LnxWebSG
 - Click on Create launch configuration
 - Create a new key pair or select the existing and Create launch configuration
 
 Your Launch Configuration is created, let us now create the auto scaling group. Click on Create an Auto scaling group using this Launch configuration.
 
-- Group name – MyApp\_ASG
+- Group name – MyApp_ASG
 - Group size – Start with 2 instances
 - Network – MyVPC
 - Subnet – Select both the public subnets here.
