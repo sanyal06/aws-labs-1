@@ -17,68 +17,42 @@ The main services covered in this lab are –
 
 PS: This lab is in continuation from VPC Lab 01, we consider you already have the VPC and other components from Lab 01 except NAT Gateway. We also have divided this lab in two parts. We will create the required services manually (single point of failure) in the first part and remediate that in part two.
 
-Also edit all the Security Groups from the previous labs and replace RDP ports with SSH, since we are going to create Linux instances in this lab.
-
-
-
 ## Lab 02 – Part 01 of 02
 
 Creating the database and App server.
 
 ### Activity 01 – Creating an RDS instance
 
-Let us create a database, but before we do that we need to tell the service as to which subnets to be used for creating RDS instances, we do it by creating a Subnet group.
+Let us create a database, an RDS – MySQL instance.
 
-Find the RDS service in the management console and click on it.
-
-Expand the left hand side navigation pane (three horizontal lines) and click on &#39;Subnet groups&#39;.
-
-Click &#39;Create subnet group&#39;, name it &#39;my-db-sg&#39;. You can paste the same in the description.
-
-Choose &#39;MyVPC&#39; from the VPC dropdown.
-
-In the &#39;Add subnets&#39; section, select the first AZ and the corresponding private subnet from next dropdown. Click on &#39;Add subnet&#39; button.
-
-Change the AZ and select the other corresponding private subnet and click on &#39;Add subnet&#39; button.
-
-You should see both of your private subnets in the group now.
-
-Click on Create.
-
-Let us now create an RDS – MySQL instance.
-
-Click on Create database. You should see the six choices supported by RDS as of now. We will select MySQL.
-
-Choose &#39;Dev/Test – MySQL&#39; on the next page. Click Next
-
-Fill the below details, leave defaults what is not explicitly mentioned here.
-
-- DB instance class: db.t2.micro
-- Multi-AZ deployment: No (Chargeable if you say yes)
-- Storage type: General Purpose (SSD)
-- Allocated storage: 20 GB
-
-You will see a monthly cost below, this will be charged in case you are not in free tier period.
-
+Click on Create database.  
+Choose a database creation method: Standard Create.  
+Engine options: MySQL  
+Templates: Free tier
 Settings -
-
 - DB instance identifier: inventory-db
 - Master username: master
-- Master password: lab-password
+- Master password: lab-password 
+DB instance size -  
+- DB instance class: db.t2.micro  
 
-Click Next
+Storage -  leave the defaults.
 
-- Virtual Private Cloud (VPC): MyVPC
-- Subnet group: my-db-sg
-- Public accessibility: No
+Availability & durability -  
+- Multi-AZ deployment: Do not create a standby instance (Should be by default selected)
+
+Connectivity -  
+- Virtual Private Cloud (VPC): My_VPC
+- Subnet group: my_dbsubnetgroup  
+- Publicly accessible: No
+- VPC security groups: Choose existing VPC security groups. Add My_DBSG from the dropdown and remove the preselected default.
 - Availability zone: No preference
-- VPC security groups: Choose existing VPC security groups &gt; Add My-DB-SG
-- Remove the Default one
+ 
+Additional Configuration -  
 
-In the Database options section, configure:
+- Initial database name: inventory
 
-- Database name: inventory
-- Click Create database
+Leave rest as default values and click Create database.
 
 It will take a little time now to create your RDS instance, we can continue with the rest steps. Open another tab to do other steps and leave this page open, we will revisit soon.
 
