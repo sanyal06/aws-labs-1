@@ -63,7 +63,7 @@ It will take a little time now to create your RDS instance, we can continue with
 - Open IAM in a new tab and click on 'Roles' – 'Create role'
 - Select type of trusted entity: EC2, go next to permission page
 - Search for 'AmazonSSMFullAccess' and go next, skip the tags and go next Review
-- Role name: My\_SSM\_Role, Create.
+- Role name: My_SSM_Role, Create.
 
 This role will allow the application to use the System Manger feature, more on this later.
 
@@ -78,7 +78,7 @@ On the Configure Instance Details page select the below mentioned points and lea
 
 - Network: MyVPC
 - Subnet: My_PubSub01
-- IAM Role: My\_SSM\_Role
+- IAM Role: My_SSM_Role
 
 **Expand the Advance Details section and paste the following script in the user data section. The format of the script is very important, please ensure there are no extra line breaks or spaces when you paste in the user data section.**
 
@@ -108,9 +108,9 @@ Click on Next: Add Storage
 
 Your instance will come with a root volume of 8 GB as you can see in this screen. We can add additional EBS volumes if need be, as of now click on Next: Add Tags
 
-- Create a Tag with &#39;Key: Name&#39; and &#39;Value: MyAppServer&#39;
+- Create a Tag with 'Key: Name' and 'Value: MyAppServer'
 - Click on Next: Configure Security Group
-- Click on the Select existing security group, find and select &#39;My_AppSG&#39;
+- Click on the Select existing security group, find and select 'My_AppSG'
 - Click on Review and Launch.
 - On the next page ensure that your AMI is free tier eligible and Instance Type is showing as t2.micro.
 - Click on Launch.
@@ -134,6 +134,10 @@ Click Save, the application will now connect to the database and will load some 
 
 So as of now you have one single EC2 instance serving a web application, it is storing the data in a RDS database. But this instance is a manually created and what will happen if it goes down? The data might remain saved in the database but will be unavailable till the time the server is/are brought back. The process has to be an automated one rather than manual, EC2 auto scaling is the feature that comes to rescue here!
 
+Since we have installed our application and did the configurtion already, let us save this as an image for our future use so we dont have to start from scrach.
+
+On the EC2 dashboard, select the instance, go to the Action dropdown, Image and create image. Note the AMI ID, we will use it later.
+
 Terminate the instance, we are simulating a disaster now 
 
 ## Lab 02 – Part 02 of 02
@@ -144,10 +148,10 @@ You will now be launching this application using a Launch Configuration into an 
 
 Go to the Auto Scaling section in your EC2 dashboard and click on Create Launch Configuration.
 
-- AMI – Amazon Linux AMI - 2
-- Instance Type – t2.micro
-- Name – MyAppServer\_V01\_LC
-- IAM Role – My\_SSM\_Role
+- AMI: Select the AMI from MyAMI section that you created in previous steps.
+- Instance Type: t2.micro
+- Name: MyAppServer_V01_LC
+- IAM Role: My_SSM_Role
 - Expand Advance Details Section and paste the same user data script from above.
 
 Go next.
@@ -159,20 +163,20 @@ Go next.
 
 Your Launch Configuration is created, let us now create the auto scaling group. Click on Create an Auto scaling group using this Launch configuration.
 
-- Group name – MyApp_ASG
-- Group size – Start with 2 instances
-- Network – MyVPC
-- Subnet – Select both the public subnets here.
-- Configure scaling policies - Use scaling policies to adjust the capacity of this group
+- Group name: MyApp_ASG
+- Group size: Start with 2 instances
+- Network: MyVPC
+- Subnet: Select both the public subnets here.
+- Configure scaling policies: Use scaling policies to adjust the capacity of this group
 - Scale between 2 and 5 instances.
-- Target value – 60
-- Instances need – 10
+- Target value: 60
+- Instances need: 10
 - Next Configure Notification
-- Add Notification – Create Topic
-- Send a notification to – MyASG\_Topic
-- With these recipients - &lt;your email ID&gt;
-- Next Create a Tag with &#39;Key: Name&#39; and &#39;Value: MyAppServer&#39;
-- Review – Create Auto Scaling group
+- Add Notification: Create Topic
+- Send a notification to: MyASG_Topic
+- With these recipients: 'your email ID'
+- Next Create a Tag with 'Key: Name' and 'Value: MyAppServer'
+- Review: Create Auto Scaling group
 
 Click on Close, you would be directed to the Auto Scaling Groups Dashboard. Explore the Activity History and other tabs.
 
@@ -185,19 +189,18 @@ But the end users would not have IP addresses to your server right? They should 
 ### Activity 05 - Creating an Application Load Balancer
 
 
-
 Go to the Load Balancing section of EC2 dashboard and click on Target Group
 
 - Create Target Group
-- Target group name – MyTG
-- VPC – MyVPC
+- Target group name: MyTG
+- VPC: MyVPC
 - Leave rest defaults and click Create.
 
-Click on Load Balancers – Create Load Balancers
+Click on Load Balancers: Create Load Balancers
 
 From next screen, create an Application Load Balancer
 
-- Name – MyALB
+- Name: MyALB
 - Scroll down to the Availability Zones Section
 - Select the VPC in which you have launched the ASG
 - Select Public Subnets from both AZs. This is a critical step, reconfirm before going forward.
@@ -205,13 +208,12 @@ From next screen, create an Application Load Balancer
 - Next - Configure Security Groups. Select My_ELBSG from existing ones.
 - Next Configure Routing –
 - Target group – Existing Target Group
-- Name – MyTG
+- Name: MyTG
 - Leave rest defaults - Register Targets – Review – Create
 
 Click on close and it will take you to the load balancer dashboard, you should see the DNS endpoint of your load balancer in Description Tab. ALB takes a little time to come up. Refresh till you see the state as active.
 
 Let us register our instances in ASG with the MyTG target group. Select your ASG and go to action dropdown and click on edit. You will find a field for target group in the lower section. Click on the empty field and assign MyTG. Save it (save button is towards the top right of lower section)
-
 
 
 Open the DNS address of your ALB in a browser and notice what it shows. It is now diverting the traffic to both your instances. You can see the behavior of load balancer while you refresh the page and notice the instance ID.
@@ -233,7 +235,7 @@ Update the <b>My_LnxWebSG</b> security group settings as shown below.
 | SSH  | TCP  | 22  | Custom  | \<SG ID of My_WinBHSG>  |
 | SSH  | TCP  | 22  | Custom  | \<SG ID of My_LnxBHSG>  |
 
-If your application is reachable by the load balancer endpoint and not through visiting the IP addresses or EC2 instances in browser, you have done it well.
+If your application is reachable only through the load balancer endpoint and not through visiting the IP addresses or EC2 instances in browser, you have done it well.
 
 You can also now try deleting one/more server in order to verify whether the auto scaling feature is able to spin up instances in response.
 
@@ -241,10 +243,10 @@ You can also now try deleting one/more server in order to verify whether the aut
 
 Delete the resources in the below order
 
- 1 - RDS (do not create a snapshot and do not retain the automated backup files)  
- 2 - ALB  
- 3 - Auto Scaling Group (takes little time to delete)  
- 4 - Target Group – Launch Configuration.
+ 1: RDS (do not create a snapshot and do not retain the automated backup files)  
+ 2: ALB  
+ 3: Auto Scaling Group (takes little time to delete)  
+ 4: Target Group – Launch Configuration.
 
 ***All the services used in this lab are eligible and covered within the free tier account. There should not be any charge if you delete all the resources within a couple of hours of creation provided you have monthly limits left.***
 
