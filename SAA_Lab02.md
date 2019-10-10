@@ -29,10 +29,12 @@ Click on Create database.
 Choose a database creation method: Standard Create.  
 Engine options: MySQL  
 Templates: Free tier
+
 Settings -
 - DB instance identifier: inventory-db
 - Master username: master
 - Master password: lab-password 
+
 DB instance size -  
 - DB instance class: db.t2.micro  
 
