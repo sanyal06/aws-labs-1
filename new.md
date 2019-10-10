@@ -156,7 +156,7 @@ VPC Lab -- Part 02 of 02
 
 We are now going to create 3 instances. One each as MyBastionHost, MyAppServer and MyDBServer. Let us switch to EC2 Dashboard now and click on Launch Instance.
 
-Creating the jump server  
+Creating the Jump Server/Bastion Host  
 
 * Amazon Machine Image: "Amazon Linux 2" (free tier eligible)
 * Instance Type: t2.micro
@@ -181,7 +181,7 @@ Finally click on Launch Instance
 We have just created one EC2 instance in our public subnet as jump server, now we would create another EC2 instance in public subnet as MyAppServer and one in private subnet as MyDBServer following similar steps.
 Go back to EC2 Dashboard now and click on Launch Instance.
 
-Creating the server for application  
+Creating a server for hosting the Application  
 
 * Amazon Machine Image: "Amazon Linux 2" (free tier eligible)
 * Instance Type: t2.micro
@@ -203,7 +203,7 @@ On the next window, select to use existing Key Pair 'mykey'.
 
 * Click on Launch Instance
 
-Creating the server for database  
+Creating a server for Database installations 
 
 * Amazon Machine Image: "Amazon Linux 2" (free tier eligible)
 * Instance Type: t2.micro
@@ -227,8 +227,8 @@ On the next window, select to use existing Key Pair 'mykey'.
 
 Go back to your EC2 instance page. You should see your three instances.
 
-_Did you notice that your MyBastionHost and MyAppServer have got public IPs and public DNS while MyDBServer has not, why?_
-_Why are all running in the same AZ?_
+_Did you notice that your MyBastionHost and MyAppServer have got public IPs and public DNS while MyDBServer has not, why?_  
+_Why are all instances running in the same AZ?_
 
 #### Activity 06 - Verifying the connectivity
 
