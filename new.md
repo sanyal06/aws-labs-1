@@ -280,12 +280,12 @@ Let us verify the same by going back and accessing Internet from the instance in
 
 Let's clean up. Follow the order or you will get dependency errors.
 
-* Terminate both the instances.
+* Terminate all running instances.
 * Delete NAT Gateway (deleting NAT Gateway might take a minute or two, keep refreshing the page till the time you see it is deleted)
 * Release the Elastic IP that was created for your NAT Gateway (it will not be released until the NAT gateway is deleted).
+* Delete MyVPC.
 
 ***The NAT Gateway is a chargeable resource and typically it is ~USD 0.05/INR 5 to 6 per hour, ensure you delete it within an hour of creation. You would need to pay this amount once AWS sends you the bill at the end of month. Elastic IPs are chargeable resources if they are lying unused, there will be no fee as long as you delete it post NAT Gateway deletion.***
 
-Leave the other resources. They are free and we will leverage them in subsequent labs.
 
 **Lab Complete.**
