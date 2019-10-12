@@ -110,7 +110,7 @@ Your instance will come with a root volume of 8 GB as you can see in this screen
 
 - Create a Tag with 'Key: Name' and 'Value: MyAppServer'
 - Click on Next: Configure Security Group
-- Click on the Select existing security group, find and select 'My_AppSG'
+- Click on the Select existing security group, find and select 'My_LnxWebSG'
 - Click on Review and Launch.
 - On the next page ensure that your AMI is free tier eligible and Instance Type is showing as t2.micro.
 - Click on Launch.
