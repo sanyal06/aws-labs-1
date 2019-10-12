@@ -23,7 +23,7 @@ Creating the database and App server.
 
 ### Activity 01 – Creating an RDS instance
 
-Let us create a database, an RDS – MySQL instance.
+Navigate to the RDS service in management console.
 
 Click on Create database.  
 Choose a database creation method: Standard Create.  
