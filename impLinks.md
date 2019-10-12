@@ -30,7 +30,7 @@ Get Involved:
 
 -   [Revert changes to security groups automatially using Lambda](https://aws.amazon.com/blogs/security/how-to-automatically-revert-and-receive-notifications-about-changes-to-your-amazon-vpc-security-groups/)
 
--   [Doker Guide](https://goto.docker.com/rs/929-FJL-178/images/Whitepaper_Definitive_Guide_to_Enterprise_Container_Platforms.pdf)  
+-   [Docker Guide](https://goto.docker.com/rs/929-FJL-178/images/Whitepaper_Definitive_Guide_to_Enterprise_Container_Platforms.pdf)  
 
 Free Digital Training Courses for Serverless:
 -   [AWS Lambda Foundations](https://www.aws.training/Details/eLearning?id=27197)
