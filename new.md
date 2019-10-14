@@ -251,15 +251,15 @@ Once you are logged into your MyBastionHost EC2 instance, you can jump on to the
 ```
 sudo su (for becoming root)
 cd (switching home directory)
-nano mykey.pem (paste the entire content of mykey.pem here. After pasting hit ctrl+x, y, enter to save and come out)
+nano mykey.pem (paste the entire content of mykey.pem here then hit ctrl+x, y, enter to save)
 chmod 400 mykey.pem
 ```
 
-you can now login to the public instance by running folowing command
+You can now login to the public instance by running folowing command
 ```
 ssh -i mykey.pem ec2-user@<public IP of MyAppServer instance>
 ```
-try pinging google.com from here and see that it works. You can logout from MyAppServer by running exit command and then login to MyDBServer.
+Try pinging google.com from here and see that it works. You can logout from MyAppServer by running exit command and then login to MyDBServer.
 ```
 ssh -i mykey.pem ec2-user@<private IP of MyDBServer instance>
 ```
