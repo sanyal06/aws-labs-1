@@ -7,7 +7,9 @@ In this lab we are going to design the network for a highly available two tier w
 #### Activity 01 – Creating a VPC
 Login to your AWS account and find VPC under Networking & Content Delivery category.  
 Click on Your VPCs in the side bar and then click on Create VPC.  
+
 _Did you notice that a VPC (default VPC) was already created? Find out what other resources were automatically created for you in VPC and why._ 
+
 Now you need to give a name to your VPC and select a CIDR notation.
 * Name tag: MyVPC
 * IPv4 CIDR block: 10.0.0.0/16
