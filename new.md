@@ -178,6 +178,8 @@ On the next window, create a new Key Pair, Key pair name: mykey and then Downloa
 
 Finally click on Launch Instance
 
+_Open this mykey.pem file in any text editor, we would need to copy paste the content in future steps_
+
 We have just created one EC2 instance in our public subnet as jump server, now we would create another EC2 instance in public subnet as MyAppServer and one in private subnet as MyDBServer following similar steps.
 Go back to EC2 Dashboard now and click on Launch Instance.
 
@@ -244,15 +246,26 @@ You should be connected to your instance via a browser based ssh. This is the qu
 
 _Can you also connect to your MyAppServer and MyDBServer the same way, if not why?_
 
-Once you are logged into your MyAppServer EC2 instance, you may verify if the machine can reach Internet.
+Once you are logged into your MyBastionHost EC2 instance, you can jump on to the MyAppServer and MyDBServer, but for that you would need to copy the key pair on the MyBastionHost. Run the below commnds..
 
-In the above step you connected to your EC2 instance in public subnet and verified that it had Internet connectivity. Our next step would be login to the EC2 instance launched in the private subnet and verify that it should not have Internet connectivity.
-We will use our public EC2 instance as a bastion host (jump box) to login to the instance in the private subnet. In ideal scenario we should have created another EC2 instance as bastion host, we are using the 'MyAppServer' as jump server just to minimize cost and to be in free tier limits as long as possible in the lab exercise.
+```
+sudo su (for becoming root)
+cd (switching home directory)
+nano mykey.pem (paste the entire content of mykey.pem here. After pasting hit ctrl+x, y, enter to save and come out)
+chmod 400 mykey.pem
+```
 
-* Retrieve the password for the private instance using the AWS management console and initiate an RDP session from within the public instance.
+you can now login to the public instance by running folowing command
+```
+ssh -i mykey.pem ec2-user@<public IP of MyAppServer instance>
+```
+try pinging google.com from here and see that it works. You can logout from MyAppServer by running exit command and then login to MyDBServer.
+```
+ssh -i mykey.pem ec2-user@<private IP of MyDBServer instance>
+```
+Once you are in the MyDBServer, if you try pinging google.com it will fail. That proves that we do not have out bound internet connectivity from the instances in Private Subnets.
 
-Let us quickly try to check to see if this EC2 instance can reach Internet. The easiest way is by pinging google.com
-In all possibilities, the connection should not work. This proves that your MyDBServer in MyPrivatesubnet01 does not have direct access to Internet. Keep the session opened. In the next steps, we would enable NATing service for private subnets to give one-way Internet access.
+Keep the session opened. In the next steps, we would enable NATing service for private subnets to give outbound only Internet access.
 
 * Go back to your VPC dashboard.
 * Click on NAT Gateways in the sidebar of VPC Dashboard and then click on Create NAT Gateway.
