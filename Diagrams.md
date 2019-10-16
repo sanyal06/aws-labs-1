@@ -2,7 +2,7 @@
 
 Multi (three) Tier Architecture 
 
- ![](https://github.com/ashydv/aws-labs/blob/master/images/ThreeTierArchitectecture.png)
+ ![](https://github.com/ashydv/aws-labs/blob/master/images/ThreeTierArchitecture.png)
  
  
  The Full Application Infra Architure
