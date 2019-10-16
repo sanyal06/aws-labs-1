@@ -8,6 +8,6 @@ Highly Available Network Diagram
 
  ![](https://github.com/ashydv/aws-labs/blob/master/images/NetworkDiagram.png)
  
-The Full Application Infra Architure
+The Full Application Infra Architecture
 
  ![](https://github.com/ashydv/aws-labs/blob/master/images/FullArchitectecture.png)
