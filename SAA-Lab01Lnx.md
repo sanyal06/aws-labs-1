@@ -4,6 +4,10 @@
 
 In this lab we are going to design the network for a highly available two tier web application. The web servers will be deployed in two public subnets across two availability zones having Internet connectivity and DB servers will be deployed in two private subnets across two availability zones. The DB servers will use network address translation (NAT) service for outbound Internet connectivity.
 
+The network after building will look similer to the picture below
+
+ ![](https://github.com/ashydv/aws-labs/blob/master/images/NetworkDiagram.png)
+
 #### Activity 01 – Creating a VPC
 Login to your AWS account and find VPC under Networking & Content Delivery category.  
 Click on Your VPCs in the side bar and then click on Create VPC.  
