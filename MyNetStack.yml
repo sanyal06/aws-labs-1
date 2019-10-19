@@ -283,6 +283,20 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', LnxBHSG]]
+    DBSG:
+        Type: 'AWS::EC2::SecurityGroup'
+        Properties:
+            GroupName: DBSG
+            GroupDescription: 'Accepts DB traffic from WebSG.'
+            VpcId: !Ref VPC
+            SecurityGroupIngress:
+              - IpProtocol: tcp
+                FromPort: 3306
+                ToPort: 3306
+                CidrIp: !Ref LnxWebSG
+            Tags: 
+              - Key: Name 
+                Value: !Join [_, [!Ref 'AWS::StackName', DBSG]]  
     DBSubnetGroup:
         Type: "AWS::RDS::DBSubnetGroup"
         Properties: 
