@@ -293,7 +293,7 @@ Resources:
               - IpProtocol: tcp
                 FromPort: 3306
                 ToPort: 3306
-                CidrIp: !Ref LnxWebSG
+                SourceSecurityGroupId: !Ref LnxWebSG
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', DBSG]]  
