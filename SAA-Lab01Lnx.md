@@ -263,11 +263,11 @@ chmod 400 mykey.pem
 
 You can now login to the public instance by running folowing command
 ```
-ssh -i mykey.pem ec2-user@<public IP of MyAppServer instance>
+ssh -i mykey.pem ec2-user@<Public DNS end point of MyAppServer instance>
 ```
 Try pinging google.com from here and see that it works. You can logout from MyAppServer by running exit command and then login to MyDBServer.
 ```
-ssh -i mykey.pem ec2-user@<private IP of MyDBServer instance>
+ssh -i mykey.pem ec2-user@<Private DNS end point of MyDBServer instance>
 ```
 Once you are in the MyDBServer, if you try pinging google.com it will fail. That proves that we do not have out bound internet connectivity from the instances in Private Subnets.
 
