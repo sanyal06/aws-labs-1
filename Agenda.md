@@ -66,6 +66,8 @@
     -   Life Cycle Policy
 -   Glacier
 
+-   CLI and Roles Lab
+
 -   CloudFront
 -   EFS
 -   Storage Gateway
