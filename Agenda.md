@@ -36,7 +36,7 @@
     -   Userdata, Metadata (Comparison)
     -   EC2 purchasing Options, Tenancy
 
-**Automation DevOps**
+**Automation**
 
 -   Elastic Beanstalk (to be revisited)
 -   CloudFormation
