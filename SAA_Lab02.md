@@ -152,7 +152,6 @@ Go to the Auto Scaling section in your EC2 dashboard and click on Create Launch 
 - Instance Type: t2.micro
 - Name: MyAppServer_V01_LC
 - IAM Role: My_SSM_Role
-- Expand Advance Details Section and paste the same user data script from above.
 
 Go next.
 
