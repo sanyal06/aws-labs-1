@@ -57,6 +57,7 @@
     -   Types  
     -   Creation, Modification, Snapshots, Deletion, Movement
 -   S3
+    -   Pricing
     -   Versioning
     -   Static Website Hosting
     -   ACL and Bucket Policy
