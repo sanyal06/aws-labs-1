@@ -100,12 +100,12 @@ _You would see that all four subnets that you created are associated with the ma
 * Click on Edit subnet associations and select the two Public Subnets that you created. Save.
 
 
-Let us now create three different 'Security Groups' for bastion hosts, application server, database and load balancer. We would leverage them in coming labs.
+Let us now create three different 'Security Groups' for bastion hosts, web server, database and load balancer. We would leverage them in coming labs.
 In the navigation pane find and click on 'Security Groups'
 
 * Click on 'Create Security Group'
-	* Security group name*: My-App-SG
-	* Description*: This SG is to be used for application servers.
+	* Security group name*: My-Web-SG
+	* Description*: This SG is to be used for web servers.
 	* VPC: MyVPC
 * Click on Create
 
@@ -115,7 +115,7 @@ Create three more security groups with following configurations --
 	* Description*: This SG is to be used for database servers.
 	* VPC: MyVPC
 * Security group name*: My-ALB-SG
-	* Description*: This SG is to be used for application load balancers.
+	* Description*: This SG is to be used for application load balancer.
 	* VPC: MyVPC
 * Security group name*: My-BastionHost-SG
 	* Description*: This SG is to be used for bastions hosts.
@@ -131,7 +131,7 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
 | SSH  | TCP  | 22  | Anywhere  | 0.0.0.0/0  |
 
-#### My-App-SG
+#### My-Web-SG
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
@@ -143,7 +143,7 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<sg id of My-App-SG>  |
+| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<sg id of My-Web-SG>  |
 | SSH  | TCP  | 22  | Custom  | \<sg id of My-BastionHost-SG>  |
 
 #### My-ALB-SG
@@ -160,7 +160,7 @@ VPC Lab -- Part 02 of 02
 
 #### Activity 05 - Creating EC2 instances
 
-We are now going to create 3 instances. One each as MyBastionHost, MyAppServer and MyDBServer. Let us switch to EC2 Dashboard now and click on Launch Instance.
+We are now going to create 3 instances. One each as MyBastionHost, MyWebServer and MyDBServer. Let us switch to EC2 Dashboard now and click on Launch Instance.
 
 Creating the Jump Server/Bastion Host  
 
@@ -169,7 +169,7 @@ Creating the Jump Server/Bastion Host
 * Configure Instance Details: select the below mentioned points and leave everything else as default.
 	* Network: MyVPC
 	* Subnet: MyPublicSubnet01
-* Add Storage: Leave defaults (Your instance will come with a root volume of 8 GB as you can see in this screen. We can add additional EBS volumes if need be)
+* Add Storage: Leave defaults (Your instance will come with a root volume of 8 GB as you can see in this screen. We can add additional EBS volumes if need be, more on this in Storage class)
 * Add Tags
 	* Key: Name
 	* Value: MyBastionHost
@@ -186,21 +186,41 @@ Finally click on Launch Instance
 
 _Open this mykey.pem file in any text editor, we would need to copy paste the content in future steps_
 
-We have just created one EC2 instance in our public subnet as jump server, now we would create another EC2 instance in public subnet as MyAppServer and one in private subnet as MyDBServer following similar steps.
-Go back to EC2 Dashboard now and click on Launch Instance.
+We have just created one EC2 instance in our public subnet as jump server, now we would create another EC2 instance in public subnet as MyWebServer and one in private subnet as MyDBServer following similar steps.  
 
-Creating a server for hosting the Application  
+Go back to EC2 Dashboard now and click on Launch Instance.
 
 * Amazon Machine Image: "Amazon Linux 2" (free tier eligible)
 * Instance Type: t2.micro
-* Configure Instance Details: select the below mentioned points and leave everything else as default.
+* Configure Instance Details: Select the below mentioned points and leave everything else as default.
 	* Network: MyVPC
 	* Subnet: MyPublicSubnet01
-* Add Storage: Leave defaults (Your instance will come with a root volume of 8 GB as you can see in this screen. We can add additional EBS volumes if need be)
+
+**Expand the Advance Details section and paste the following script in the user data section. The format of the script is very important, please ensure there are no extra line breaks or spaces when you paste in the user data section.**
+
+**\*\*\* V V Imp step\*\*\***
+```
+#!/bin/bash
+yum install httpd mysql -y
+amazon-linux-extras install -y php7.2
+wget https://us-west-2-tcprod.s3.amazonaws.com/courses/ILT-TF-100-ARCHIT/v6.2.1/lab-1-webapp/scripts/inventory-app.zip
+unzip inventory-app.zip -d /var/www/html/
+wget https://github.com/aws/aws-sdk-php/releases/download/3.62.3/aws.zip
+unzip aws -d /var/www/html
+service httpd start
+chkconfig httpd on
+```
+This script will –
+
+1 - Install an Apache web server and the PHP
+2 - Download a sample Inventory application and the AWS SDK
+3 - Activate the Web server and configure it to automatically start on boot
+
+* Add Storage: Leave defaults 
 * Add Tags
 	* Key: Name
-	* Value: MyAppServer
-* Configure Security Group: Select existing -> My-App-SG
+	* Value: MyWebServer
+* Configure Security Group: Select existing -> My-Web-SG
 * Click on Review and Launch.
 
 On the next page check that your AMI is free tier eligible and Instance Type is showing as t2.micro.
@@ -218,7 +238,7 @@ Creating a server for Database installations
 * Configure Instance Details: select the below mentioned points and leave everything else as default.
 	* Network: MyVPC
 	* Subnet: MyPrivateSubnet01
-* Add Storage: Leave defaults (Your instance will come with a root volume of 8 GB as you can see in this screen. We can add additional EBS volumes if need be)
+* Add Storage: Leave defaults 
 * Add Tags
 	* Key: Name
 	* Value: MyDBServer
@@ -235,24 +255,40 @@ On the next window, select to use existing Key Pair 'mykey'.
 
 Go back to your EC2 instance page. You should see your three instances.
 
-_Did you notice that your MyBastionHost and MyAppServer have got public IPs and public DNS while MyDBServer has not, why?_  
+_Did you notice that your MyBastionHost and MyWebServer have got public IPs and public DNS while MyDBServer has not, why?_  
 _Why are all instances running in the same AZ?_
+
+Try browsing the public DNS/IP of the web server, does it open? No it should not, because you have restricted the port 80's traffic only to the LoadBalancer in the security group of this instance. 
+
+For time being, allow http access from anywhere in the SG then you should be able to browse the sample app you just installed through the userdata script.
+
+Consider that you created an instance and configured your app on it. You can also save this as a template so that you will not have to start from scratch for further creation of same server.
+
+Select the MyWebServer - Instance dropdown - Image - Create image. Give a name as MyWebAMI-V1.0
+
+This image will be visible under "MyAMI" section later.
 
 #### Activity 06 - Verifying the connectivity
 
 We now have created EC2 instances across public and private subnet. We would now verify whether our network configuration is working as desired.
 
-Let us SSH to the MyBastionHost.
+Let us try to SSH to the MyWebServer.
+
+* Select the MyWebServer in the dashboard and click on 'Connect'
+* Select the second option that says: EC2 Instance Connect (browser-based SSH connection)
+* Ensure the user name is 'ec2-user' and click on connect.
+
+If your security groups are correctly defined then your login attempt will fail, this is intended and expected, you can close the failed window now. You can SSH into the Web an DB server only through the jump server.  
+
+So let us now try to SSH to MyBastionHost.
 
 * Select the MyBastionHost in the dashboard and click on 'Connect'
 * Select the second option that says: EC2 Instance Connect (browser-based SSH connection)
 * Ensure the user name is 'ec2-user' and click on connect.
 
-You should be connected to your instance via a browser based ssh. This is the quickest but not the only way to SSH into EC2 instances.  
+You should get the command prompt via browser based ssh. This is the quickest but not the only way to SSH into EC2 instances.  
 
-_Can you also connect to your MyAppServer and MyDBServer the same way, if not why?_
-
-Once you are logged into your MyBastionHost EC2 instance, you can jump on to the MyAppServer and MyDBServer, but for that you would need to copy the key pair on the MyBastionHost. Run the below commnds..
+Now since you are logged into your MyBastionHost EC2 instance, you can jump on to the MyWebServer and MyDBServer, but for that you would need to copy the key pair on MyBastionHost. Run the below commnds..
 
 ```
 sudo su (for becoming root)
@@ -263,9 +299,9 @@ chmod 400 mykey.pem
 
 You can now login to the public instance by running folowing command
 ```
-ssh -i mykey.pem ec2-user@<Public DNS end point of MyAppServer instance>
+ssh -i mykey.pem ec2-user@<Public DNS end point of MyWebServer instance>
 ```
-Try pinging google.com from here and see that it works. You can logout from MyAppServer by running exit command and then login to MyDBServer.
+Try pinging google.com from here. It will work because webservers have internet access through IGW. You can logout from MyWebServer by running exit command and then login to MyDBServer.
 ```
 ssh -i mykey.pem ec2-user@<Private DNS end point of MyDBServer instance>
 ```
@@ -287,13 +323,14 @@ Now as your NAT Gateway has been created, we will add this in the private route 
 
 * Go to Route Tables, create a new route table "MyPrivateRoute" and assign it to the two Private Subnets (Follow the similar process as you did in activity 3.  
 As expected, you would see that it has an entry for local traffic. We now should add the route entry meant for Internet.
-* Click on Edit and then on Add Another Route. Fill in the below details in the new blank route table entry.
+* Click on Edit and then Add Another Route. Fill in the below details in the new blank route table entry.
  * Destination: 0.0.0.0/0
  * Target: NAT Gateway (Select the one you created)
 * Click on save.
 
 So, you have now created a NAT Gateway which is a managed service by Amazon and assigned it to the route table which is assigned to your private subnets. This way the EC2 instances created in private subnets would get the outbound access to Internet for downloading updates/patches etc.
 Let us verify the same by going back and accessing Internet from the instance in private subnet. It should work now if you have followed the steps carefully.
+
 
 #### Activity 07 - Clean up
 
