@@ -131,6 +131,12 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
 | SSH  | TCP  | 22  | Anywhere  | 0.0.0.0/0  |
 
+#### My-ALB-SG
+| Type  | Protocol | Port Range  | Source |   |
+| :---:   | :---:   | :---:   | :---:   | :---:   | 
+| HTTP  | TCP  | 80  | Anywhere  | 0.0.0.0/0  |
+| HTTPS  | TCP  | 443  | Anywhere  | 0.0.0.0/0  |
+
 #### My-Web-SG
 
 | Type  | Protocol | Port Range  | Source |   |
@@ -145,12 +151,6 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
 | MYSQL/Aurora  | TCP  | 3306  | Custom  | \<sg id of My-Web-SG>  |
 | SSH  | TCP  | 22  | Custom  | \<sg id of My-BastionHost-SG>  |
-
-#### My-ALB-SG
-| Type  | Protocol | Port Range  | Source |   |
-| :---:   | :---:   | :---:   | :---:   | :---:   | 
-| HTTP  | TCP  | 80  | Anywhere  | 0.0.0.0/0  |
-| HTTPS  | TCP  | 443  | Anywhere  | 0.0.0.0/0  |
 
 
 For now, our VPC configuration is complete. The instances launched in our public subnets should have outbound access to Internet and the instances in our private subnet should not. We would verify the same in the next section.
