@@ -212,8 +212,8 @@ chkconfig httpd on
 ```
 This script will –
 
-1 - Install an Apache web server and the PHP
-2 - Download a sample Inventory application and the AWS SDK
+1 - Install an Apache web server and the PHP  
+2 - Download a sample Inventory application and the AWS SDK  
 3 - Activate the Web server and configure it to automatically start on boot
 
 * Add Storage: Leave defaults 
