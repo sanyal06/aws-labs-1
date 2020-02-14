@@ -23,7 +23,8 @@ Now you need to give a name to your VPC and select a CIDR notation.
 You should now see your VPC created similar to below picture.
 
 Select MyVPC and click on Action drop-down. 
-Ensure that Edit DNS Resolution and Edit DNS Hostnames are set to Yes.
+* Ensure that Edit DNS Resolution is selected as yes/box is checked.
+* Ensure that Edit DNS Hostnames is selected as yes/box is checked..
 
 #### Activity 02 - Creating Subnets
 
