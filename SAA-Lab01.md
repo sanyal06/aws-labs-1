@@ -100,7 +100,7 @@ _You would see that all four subnets that you created are associated with the ma
 * Click on Edit subnet associations and select the two Public Subnets that you created. Save.
 
 
-Let us now create three different 'Security Groups' for bastion hosts, web server, database and load balancer. We would leverage them in coming labs.
+Let us now create different 'Security Groups' for bastion hosts, web server, database and load balancer. We would leverage them in coming labs.
 In the navigation pane find and click on 'Security Groups'
 
 * Click on 'Create Security Group'
