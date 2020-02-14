@@ -20,7 +20,6 @@ Now you need to give a name to your VPC and select a CIDR notation.
 * IPv4 CIDR block: No IPv6 CIDR Block
 * Tenancy: default
 * Click on Yes Create. 
-You should now see your VPC created similar to below picture.
 
 Select MyVPC and click on Action drop-down. 
 * Ensure that Edit DNS Resolution is selected as yes/box is checked.
