@@ -104,8 +104,8 @@ Let us now create different 'Security Groups' for bastion hosts, web server, dat
 In the navigation pane find and click on 'Security Groups'
 
 * Click on 'Create Security Group'
-	* Security group name*: My-Web-SG
-	* Description*: This SG is to be used for web servers.
+	* Security group name*: My-WebApp-SG
+	* Description*: This SG is to be used for web application servers.
 	* VPC: MyVPC
 * Click on Create
 
@@ -113,9 +113,6 @@ Create three more security groups with following configurations --
 
 * Security group name*: My-DB-SG
 	* Description*: This SG is to be used for database servers.
-	* VPC: MyVPC
-* Security group name*: My-ALB-SG
-	* Description*: This SG is to be used for application load balancer.
 	* VPC: MyVPC
 * Security group name*: My-BastionHost-SG
 	* Description*: This SG is to be used for bastions hosts.
@@ -131,25 +128,19 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
 | SSH  | TCP  | 22  | Anywhere  | 0.0.0.0/0  |
 
-#### My-ALB-SG
-| Type  | Protocol | Port Range  | Source |   |
-| :---:   | :---:   | :---:   | :---:   | :---:   | 
-| HTTP  | TCP  | 80  | Anywhere  | 0.0.0.0/0  |
-| HTTPS  | TCP  | 443  | Anywhere  | 0.0.0.0/0  |
-
-#### My-Web-SG
+#### My-WebApp-SG
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| HTTP  | TCP  | 80  | Custom  | \<sg id of My-ALB-SG>  |
-| HTTPS  | TCP  | 443  | Custom  | \<sg id of My-ALB-SG>  |
+| HTTP  | TCP  | 80  | Custom  | 0.0.0.0/0  |
+| HTTPS  | TCP  | 443  | Custom  | 0.0.0.0/0  |
 | SSH  | TCP  | 22  | Custom  | \<sg id of My-BastionHost-SG>  |
 
 #### My-DB-SG
 
 | Type  | Protocol | Port Range  | Source |   |
 | :---:   | :---:   | :---:   | :---:   | :---:   | 
-| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<sg id of My-Web-SG>  |
+| MYSQL/Aurora  | TCP  | 3306  | Custom  | \<sg id of My-WebApp-SG>  |
 | SSH  | TCP  | 22  | Custom  | \<sg id of My-BastionHost-SG>  |
 
 
@@ -160,7 +151,7 @@ VPC Lab -- Part 02 of 02
 
 #### Activity 05 - Creating EC2 instances
 
-We are now going to create 3 instances. One each as MyBastionHost, MyWebServer and MyDBServer. Let us switch to EC2 Dashboard now and click on Launch Instance.
+We are now going to create 3 EC2 instances. One each as MyBastionHost, MyWebAppServer and MyDBServer. Let us switch to EC2 Dashboard now and click on Launch Instance.
 
 Creating the Jump Server/Bastion Host  
 
@@ -186,7 +177,7 @@ Finally click on Launch Instance
 
 _Open this mykey.pem file in any text editor, we would need to copy paste the content in future steps_
 
-We have just created one EC2 instance in our public subnet as jump server, now we would create another EC2 instance in public subnet as MyWebServer and one in private subnet as MyDBServer following similar steps.  
+We have just created one EC2 instance in our public subnet as jump server, now we would create another EC2 instance in public subnet as MyWebAppServer and one in private subnet as MyDBServer following similar steps.  
 
 Go back to EC2 Dashboard now and click on Launch Instance.
 
@@ -196,31 +187,26 @@ Go back to EC2 Dashboard now and click on Launch Instance.
 	* Network: MyVPC
 	* Subnet: MyPublicSubnet01
 
-**Expand the Advance Details section and paste the following script in the user data section. The format of the script is very important, please ensure there are no extra line breaks or spaces when you paste in the user data section.**
+**Expand the Advance Details section and paste the following script in the user data section. **
 
-**\*\*\* V V Imp step\*\*\***
 ```
 #!/bin/bash
-yum install httpd mysql -y
-amazon-linux-extras install -y php7.2
-wget https://us-west-2-tcprod.s3.amazonaws.com/courses/ILT-TF-100-ARCHIT/v6.2.1/lab-1-webapp/scripts/inventory-app.zip
-unzip inventory-app.zip -d /var/www/html/
-wget https://github.com/aws/aws-sdk-php/releases/download/3.62.3/aws.zip
-unzip aws -d /var/www/html
-service httpd start
-chkconfig httpd on
+yum update -y
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+echo "Hello from EC2 instance ID: <b>$instanceid" > /var/www/html/index.html
 ```
 This script will –
 
-1 - Install an Apache web server and the PHP  
-2 - Download a sample Inventory application and the AWS SDK  
-3 - Activate the Web server and configure it to automatically start on boot
+1 - Install an Apache web server and create a Hello World! page.
+2 - Activate the Web server and configure it to automatically start on reboots.
 
 * Add Storage: Leave defaults 
 * Add Tags
 	* Key: Name
-	* Value: MyWebServer
-* Configure Security Group: Select existing -> My-Web-SG
+	* Value: MyWebAppServer
+* Configure Security Group: Select existing -> My-WebApp-SG
 * Click on Review and Launch.
 
 On the next page check that your AMI is free tier eligible and Instance Type is showing as t2.micro.
@@ -258,15 +244,7 @@ Go back to your EC2 instance page. You should see your three instances.
 _Did you notice that your MyBastionHost and MyWebServer have got public IPs and public DNS while MyDBServer has not, why?_  
 _Why are all instances running in the same AZ?_
 
-Try browsing the public DNS/IP of the web server, does it open? No it should not, because you have restricted the port 80's traffic only to the LoadBalancer in the security group of this instance. 
-
-For time being, allow http access from anywhere in the SG then you should be able to browse the sample app you just installed through the userdata script.
-
-Consider that you created an instance and configured your app on it. You can also save this as a template so that you will not have to start from scratch for further creation of same server.
-
-Select the MyWebServer - Instance dropdown - Image - Create image. Give a name as MyWebAMI-V1.0
-
-This image will be visible under "MyAMI" section later.
+Try browsing the public DNS/IP of the web server, does it open? Yes, because you have opened the traffic on port 80 from anywhere. Ideally it should be open only to the traffic coming from the load balancer, we will do that in next lab.
 
 #### Activity 06 - Verifying the connectivity
 
