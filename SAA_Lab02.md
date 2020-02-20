@@ -85,16 +85,12 @@ On the Configure Instance Details page select the below mentioned points and lea
 **\*\*\* VV Imp, your lab will fail if you do not do it properly\*\*\***
 ```
 #!/bin/bash
-# Install Apache Web Server and PHP
 yum install httpd mysql -y
 amazon-linux-extras install -y php7.2
-# Download Lab files
-wget https://us-west-2-tcprod.s3.amazonaws.com/courses/ILT-TF-100-ARCHIT/v6.2.1/lab-1-webapp/scripts/inventory-app.zip
+wget https://github.com/ashydv/Inventory-App/raw/master/inventory-app.zip
 unzip inventory-app.zip -d /var/www/html/
-# Download and install the AWS SDK for PHP
 wget https://github.com/aws/aws-sdk-php/releases/download/3.62.3/aws.zip
 unzip aws -d /var/www/html
-# Turn on web server and ensure running on reboot
 service httpd start
 chkconfig httpd on
 ```
