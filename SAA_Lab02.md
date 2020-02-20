@@ -1,6 +1,6 @@
 
 
-# Deploying a Multi-Tier, Auto scalable and Load Balanced Web Application using EC2 and RDS.
+# Deploying a Multi-Tier, Auto Scalable and Load Balanced Web Application using EC2 and RDS.
 
 By the end of this lab exercise you would have deployed a production ready sample PHP application that is highly available and on fault tolerant network infrastructure. This application uses Amazon RDS as a managed database to store the data.
 
