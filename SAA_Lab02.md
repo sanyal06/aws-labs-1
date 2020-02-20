@@ -90,7 +90,7 @@ Go to the Auto Scaling section in your EC2 dashboard and click on Create Launch 
 - AMI: Select the AMI from MyAMI section that you created in previous steps.
 - Instance Type: t2.micro
 - Name: MyAppServer_V01_LC
-- IAM Role: My_SSM_Role
+- IAM Role: My_SSMRole
 
 Go next.
 
@@ -103,10 +103,10 @@ Your Launch Configuration is created, let us now create the auto scaling group. 
 
 - Group name: MyApp_ASG
 - Group size: Start with 2 instances
-- Network: MyVPC
+- Network: My_VPC
 - Subnet: Select both the public subnets here.
 - Configure scaling policies: Use scaling policies to adjust the capacity of this group
-- Scale between 2 and 5 instances.
+- Scale between 2 and 6 instances.
 - Target value: 60
 - Instances need: 10
 - Next Configure Notification
@@ -122,7 +122,7 @@ You have just launched our highly available inventory application in an ASG. You
 
 Also check if you received an email from SNS topic, you need to confirm the subscription.
 
-But the end users would not have IP addresses to your server right? They should have a domain name to go to. Let us create a Load balancer that will divert the traffic to both these instances in weighted round robin method.
+But the end users would not have IP addresses to your server right? They should have a domain name to go to. Let us create a Load balancer that will divert the traffic to both these instances in round robin method.
 
 ### Activity 05 - Creating an Application Load Balancer
 
@@ -131,7 +131,7 @@ Go to the Load Balancing section of EC2 dashboard and click on Target Group
 
 - Create Target Group
 - Target group name: MyTG
-- VPC: MyVPC
+- VPC: My_VPC
 - Leave rest defaults and click Create.
 
 Click on Load Balancers: Create Load Balancers
