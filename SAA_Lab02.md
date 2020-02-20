@@ -2,7 +2,7 @@
 
 # Deploying a Multi-Tier, Auto scalable and Load Balanced Web Application using EC2 and RDS.
 
-By the end of this lab exercise you would have created a production ready sample PHP application that is highly available and on fault tolerant infrastructure. This application uses Amazon RDS as a managed database to store the data.
+By the end of this lab exercise you would have deployed a production ready sample PHP application that is highly available and on fault tolerant network infrastructure. This application uses Amazon RDS as a managed database to store the data.
 
 The below picture is the representation of this lab exercise.
 
@@ -15,7 +15,7 @@ The main services covered in this lab are –
 - EC2: Auto Scaling, Application Load Balancer
 - SNS
 
-PS: This lab is in continuation from VPC Lab 01, we consider you either already have the VPC and other components from Lab 01 except NAT Gateway or you have created the VPC using cfn. We also have divided this lab in two parts. We will create the required services manually (single point of failure) in the first part and remediate that in part two.
+PS: This lab is in continuation from VPC Lab 01, we consider you either already have the VPC and other components from Lab 01 except NAT Gateway. We also have divided this lab in two parts. We will create a single point of failure in the first part and remediate that in part two.
 
 ## Lab 02 – Part 01 of 02
 
@@ -47,7 +47,7 @@ Connectivity -
 - Virtual Private Cloud (VPC): My_VPC
 - Subnet group: my_dbsubnetgroup  
 - Publicly accessible: No
-- VPC security groups: Choose existing VPC security groups. Add My_DBSG from the dropdown and remove the preselected default.
+- VPC security groups: Choose existing VPC security groups. Add DBSG from the dropdown and remove the preselected default.
 - Availability zone: No preference
  
 Additional Configuration -  
@@ -58,66 +58,9 @@ Leave rest as default values and click Create database.
 
 It will take a little time now to create your RDS instance, we can continue with the rest steps. Open another tab to do other steps and leave this page open, we will revisit soon.
 
-### Activity 02 - Creating a Role
+Go to the EC2 dashboard and open the public dns endpoint of your My_WebServer in a browser window, the page would not load because of the port restrictions in the security group. Go Ahead and open the http port from anywhere in the My_LnxWebSG. You should now see the sample  web page with the instance details. Click on the settings button to set up database connection.
 
-- Open IAM in a new tab and click on 'Roles' – 'Create role'
-- Select type of trusted entity: EC2, go next to permission page
-- Search for 'AmazonSSMFullAccess' and go next, skip the tags and go next Review
-- Role name: My_SSM_Role, Create.
-
-This role will allow the application to use the System Manger feature, more on this later.
-
-### Activity 03 - Creating App Server (EC2 instance)
-
-Let us create our application servers now. Go to EC2 Dashboard and click on Launch Instance.
-
-- AMI: Amazon Linux 2
-- Instance Type: t2.micro
-
-On the Configure Instance Details page select the below mentioned points and leave everything else as default.
-
-- Network: MyVPC
-- Subnet: My_PubSub01
-- IAM Role: My_SSM_Role
-
-**Expand the Advance Details section and paste the following script in the user data section. The format of the script is very important, please ensure there are no extra line breaks or spaces when you paste in the user data section.**
-
-**\*\*\* VV Imp, your lab will fail if you do not do it properly\*\*\***
-```
-#!/bin/bash
-yum install httpd mysql -y
-amazon-linux-extras install -y php7.2
-wget https://github.com/ashydv/Inventory-App/raw/master/inventory-app.zip
-unzip inventory-app.zip -d /var/www/html/
-wget https://github.com/aws/aws-sdk-php/releases/download/3.62.3/aws.zip
-unzip aws -d /var/www/html
-service httpd start
-chkconfig httpd on
-```
-This script will –
-
-- Install an Apache web server and the PHP
-- Download the Inventory application and the AWS SDK
-- Activate the Web server and configure it to automatically start on boot
-
-Click on Next: Add Storage
-
-Your instance will come with a root volume of 8 GB as you can see in this screen. We can add additional EBS volumes if need be, as of now click on Next: Add Tags
-
-- Create a Tag with 'Key: Name' and 'Value: MyAppServer'
-- Click on Next: Configure Security Group
-- Click on the Select existing security group, find and select 'My_LnxWebSG'
-- Click on Review and Launch.
-- On the next page ensure that your AMI is free tier eligible and Instance Type is showing as t2.micro.
-- Click on Launch.
-
-You may use your existing key pair from previous lab.
-
-Go to the EC2 dashboard and see your server should be launching.
-
-Once the server is launched, copy its public IP address and open in a browser window, the page would not load because of the port restrictions in the security group. Go Ahead and open the http port from anywhere in the My_LnxWebSG. You should now see a minimal web page. Click on the settings button to set up database connection.
-
-Go to the RDS dashboard and find out the database connection endpoint
+Go to the RDS dashboard and find out the database connection endpoint.
 
 Return to the browser tab with the Inventory application and enter the below information:
 
@@ -134,7 +77,7 @@ Since we have installed our application and did the configurtion already, let us
 
 On the EC2 dashboard, select the instance, go to the Action dropdown, Image and create image. Note the AMI ID, we will use it later.
 
-Terminate the instance, we are simulating a disaster now 
+Terminate the instance, we are simulating a disaster now!
 
 ## Lab 02 – Part 02 of 02
 
