@@ -199,7 +199,7 @@ echo "Hello from EC2 instance ID: <b>$instanceid" > /var/www/html/index.html
 ```
 This script will –
 
-1 - Install an Apache web server and create a Hello World! page.
+1 - Install an Apache web server and create a Hello World! page.  
 2 - Activate the Web server and configure it to automatically start on reboots.
 
 * Add Storage: Leave defaults 
