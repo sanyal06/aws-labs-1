@@ -241,7 +241,7 @@ On the next window, select to use existing Key Pair 'mykey'.
 
 Go back to your EC2 instance page. You should see your three instances.
 
-_Did you notice that your MyBastionHost and MyWebServer have got public IPs and public DNS while MyDBServer has not, why?_  
+_Did you notice that your MyBastionHost and MyWebAppServer have got public IPs and public DNS while MyDBServer has not, why?_  
 _Why are all instances running in the same AZ?_
 
 Try browsing the public DNS/IP of the web server, does it open? Yes, because you have opened the traffic on port 80 from anywhere. Ideally it should be open only to the traffic coming from the load balancer, we will do that in next lab.
@@ -250,9 +250,9 @@ Try browsing the public DNS/IP of the web server, does it open? Yes, because you
 
 We now have created EC2 instances across public and private subnet. We would now verify whether our network configuration is working as desired.
 
-Let us try to SSH to the MyWebServer.
+Let us try to SSH to the MyWebAppServer.
 
-* Select the MyWebServer in the dashboard and click on 'Connect'
+* Select the MyWebAppServer in the dashboard and click on 'Connect'
 * Select the second option that says: EC2 Instance Connect (browser-based SSH connection)
 * Ensure the user name is 'ec2-user' and click on connect.
 
@@ -266,7 +266,7 @@ So let us now try to SSH to MyBastionHost.
 
 You should get the command prompt via browser based ssh. This is the quickest but not the only way to SSH into EC2 instances.  
 
-Now since you are logged into your MyBastionHost EC2 instance, you can jump on to the MyWebServer and MyDBServer, but for that you would need to copy the key pair on MyBastionHost. Run the below commnds..
+Now since you are logged into your MyBastionHost EC2 instance, you can jump on to the MyWebAppServer and MyDBServer, but for that you would need to copy the key pair on MyBastionHost. Run the below commnds..
 
 ```
 sudo su (for becoming root)
@@ -277,9 +277,9 @@ chmod 400 mykey.pem
 
 You can now login to the public instance by running folowing command
 ```
-ssh -i mykey.pem ec2-user@<Public DNS end point of MyWebServer instance>
+ssh -i mykey.pem ec2-user@<Public DNS end point of MyWebAppServer instance>
 ```
-Try pinging google.com from here. It will work because webservers have internet access through IGW. You can logout from MyWebServer by running exit command and then login to MyDBServer.
+Try pinging google.com from here. It will work because WebAppservers have internet access through IGW. You can logout from MyWebAppServer by running exit command and then login to MyDBServer.
 ```
 ssh -i mykey.pem ec2-user@<Private DNS end point of MyDBServer instance>
 ```
