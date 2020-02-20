@@ -15,7 +15,7 @@ The main services covered in this lab are –
 - EC2: Auto Scaling, Application Load Balancer
 - SNS
 
-PS: This lab is in continuation from VPC Lab 01, we consider you either already have the VPC and other components from Lab 01 except NAT Gateway. We also have divided this lab in two parts. We will create a single point of failure in the first part and remediate that in part two.
+PS: This lab is in continuation from VPC Lab 01, you should already have the VPC and other components from Lab 01 except NAT Gateway. This lab is also divided in two parts. We will create a single point of failure in the first part and remediate that in part two.
 
 ## Lab 02 – Part 01 of 02
 
