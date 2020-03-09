@@ -353,12 +353,14 @@ Resources:
                   Action:
                     - 'sts:AssumeRole'
             Path: /
+            ManagedPolicyArns: 
+                - arn:aws:iam::aws:policy/AmazonSSMFullAccess
     EC2SSMInstanceProfile:
         Type: 'AWS::IAM::InstanceProfile'
         Properties:
             Path: /
             Roles:
-                - !Ref  EC2SSMRole
+                - !Ref EC2SSMRole
     EC2Instance:
         Type: AWS::EC2::Instance
         Properties:
