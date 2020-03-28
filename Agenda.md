@@ -4,10 +4,12 @@
 
 -   Basics of Cloud Computing
 -   Introduction and History of AWS
+-   Certification Roadmap
 -   Global Infrastructure
 -   Free tier account creation and coverage
 -   Exploring the AWS Management Console
--   Certification Roadmap
+-   Setting up free tier billig alerts
+
 
 **IAM**
 
