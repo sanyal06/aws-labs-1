@@ -13,7 +13,7 @@
 -   [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
 
-**IAM**
+**[IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)**
 
 <details>
   <summary>Users</summary>
