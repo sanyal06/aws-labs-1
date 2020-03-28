@@ -16,6 +16,12 @@
 **[IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)**
 
 <details>
+  <summary>[The AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) and it's [usage](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)</summary>
+  
+NA
+</details>
+
+<details>
   <summary>Users</summary>
   
 An AWS IAM user is an entity that you create in AWS to represent the person or service that uses it to interact with AWS. You attach permission policies to the IAM user that determine what the user can and cannot do in AWS.
