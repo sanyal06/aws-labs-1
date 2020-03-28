@@ -89,6 +89,7 @@ NA
     -   Pricing
     -   Versioning
     -   Static Website Hosting
+    -   Pre-signed url
     -   ACL and Bucket Policy
     -   S3 tiers
     -   CRR, Transfer Acceleration
