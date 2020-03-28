@@ -15,7 +15,7 @@
 
 **IAM**
 
--  <details>
+<details>
   <summary>Users</summary>
   
 An AWS IAM user is an entity that you create in AWS to represent the person or service that uses it to interact with AWS. You attach permission policies to the IAM user that determine what the user can and cannot do in AWS.
@@ -28,10 +28,10 @@ Access keys are a combination of an access key ID and a secret access key that a
 NA
 </details>
 
--   <details>
+<details>
   <summary>Policies (AWS Managed, Customer managed, Inline)</summary>
   
-    AWS Managed policies are common across all AWS customers. We can only use them but cannot modify/delete them. Customer-managed policies provide more precise control over your policies than AWS managed policies.
+AWS Managed policies are common across all AWS customers. We can only use them but cannot modify/delete them. Customer-managed policies provide more precise control over your policies than AWS managed policies.
 </details>
 
 <details>
