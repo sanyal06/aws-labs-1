@@ -37,7 +37,7 @@
 
 -   EC2
     -   Creation Modification, Deletion
-    -   Userdata, Metadata (Comparison)
+    -   Userdata, Metadata (Comparison)(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
     -   EC2 purchasing Options, Tenancy
 
 **Automation**
