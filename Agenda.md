@@ -24,12 +24,15 @@
 <details>
   <summary>IAM Users</summary>
   
-An AWS IAM user is an entity that you create in AWS to represent the person or service that uses it to interact with AWS. You attach permission policies to the IAM user that determine what the user can and cannot do in AWS.
+An AWS IAM user is an entity that you create in AWS to represent the person or service that uses it to interact with AWS. IAM Users have a set of permanent credentials such as an Access Key and/or Console ID-Password. You attach permission policies to the IAM user that determine what the user can and cannot do in AWS.
+The console ID-password is used to access the services in the AWS account through the browser interface.
 Access keys are a combination of an access key ID and a secret access key that are assigned to a user. These can be used to make programmatic calls to AWS when using the API in program code or at a command prompt when using the AWS CLI.
 </details>
 
 <details>
   <summary>IAM Groups</summary>
+  
+  If you find that you'll have several users who need similar permissions, you can define an IAM Group and associate your users to the group.
   
 NA
 </details>
@@ -37,13 +40,15 @@ NA
 <details>
   <summary>IAM Policies (AWS Managed, Customer managed, Inline)</summary>
   
-AWS Managed policies are common across all AWS customers. We can only use them but cannot modify/delete them. Customer-managed policies provide more precise control over your policies than AWS managed policies.
+  By default, all permissions are denied unless explicitly granted. You may select predefined permissions from the list of AWS Managed Policies or define your own custom IAM policies.
+  AWS Managed policies are common across all AWS customers. We can only use them but cannot modify/delete them. Customer-managed policies provide more precise control over your policies than AWS managed policies.
 </details>
 
 <details>
   <summary>IAM Roles (to be revisited)</summary>
+  IAM Roles are used to provide temporary security credentials to any principal. One common case is allowing the EC2 service to distribute credentials to your application code running on an EC2 instance. Roles can also enable other scenarios in the enterprise such as cross-account access and identity federation.
   
-NA
+
 </details>
 
 <details>
