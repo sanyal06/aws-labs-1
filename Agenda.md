@@ -9,6 +9,7 @@
 -   Free tier account creation and coverage
 -   Exploring the AWS Management Console
 -   Setting up free tier billing alerts
+-   AWS Documentation(https://docs.aws.amazon.com/index.html)
 
 
 **IAM**
