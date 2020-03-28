@@ -15,6 +15,13 @@
 
 **IAM**
 
+<details>
+  <summary>Users</summary>
+    An AWS IAM user is an entity that you create in AWS to represent the person or service that uses it to interact with AWS. You attach permission policies to the IAM user that determine what the user can and cannot do in AWS.
+Access keys are a combination of an access key ID and a secret access key that are assigned to a user. These can be used to make programmatic calls to AWS when using the API in program code or at a command prompt when using the AWS CLI.
+</details>
+
+
 -   Users
 -   Groups
 -   Policies (AWS Managed, Customer managed, Inline)
