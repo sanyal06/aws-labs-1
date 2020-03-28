@@ -112,7 +112,7 @@ Lab02
 
 -   Simple Monthly Calculator, TCO Calculator
 -   Limits
--   Global vs Regional vs AZ resources
+-   Scope of service e.g. Global, Regional and AZ resources
 -   Well-Architected Framework
 -   reInvent, breakout sessions, aws.training, whitepapers, customer use cases, this is my architecture
 -   AWS Blog, AWS Online Tech Talks
