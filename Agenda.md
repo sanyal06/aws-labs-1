@@ -9,8 +9,8 @@
 -   Free tier account creation and coverage
 -   Exploring the AWS Management Console
 -   Setting up free tier billing alerts
--   AWS Documentation(https://docs.aws.amazon.com/index.html)
--   Shared Responsibility Model(https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
+-   [AWS Documentation](https://docs.aws.amazon.com/index.html)
+-   [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
 
 **IAM**
@@ -37,7 +37,7 @@
 
 -   EC2
     -   Creation Modification, Deletion
-    -   Userdata, Metadata (Comparison)(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
+    -   [Userdata, Metadata (Comparison)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
     -   EC2 purchasing Options, Tenancy
 
 **Automation**
