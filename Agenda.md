@@ -21,12 +21,25 @@
 Access keys are a combination of an access key ID and a secret access key that are assigned to a user. These can be used to make programmatic calls to AWS when using the API in program code or at a command prompt when using the AWS CLI.
 </details>
 
+<details>
+  <summary>Groups</summary>
+NA
+</details>
 
--   Users
--   Groups
--   Policies (AWS Managed, Customer managed, Inline)
--   Roles (to be revisited)
--   MFA
+<details>
+  <summary>Policies (AWS Managed, Customer managed, Inline)</summary>
+    AWS Managed policies are common across all AWS customers. We can only use them but cannot modify/delete them. Customer-managed policies provide more precise control over your policies than AWS managed policies.
+</details>
+
+<details>
+  <summary>Roles</summary>
+NA
+</details>
+
+<details>
+  <summary>MFA</summary>
+NA
+</details>
 
 **Network**
 
