@@ -16,9 +16,9 @@
 **[IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)**
 
 <details>
-  <summary>[The AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) and it's [usage](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)</summary>
+  <summary>Owner's account AKA The root user</summary>
   
-NA
+[The AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) and it's [usage](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)
 </details>
 
 <details>
