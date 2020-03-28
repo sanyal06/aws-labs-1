@@ -13,7 +13,7 @@
 -   [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
 
-**[IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)**
+**[AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)**
 
 <details>
   <summary>Owner's account AKA The root user</summary>
@@ -22,26 +22,26 @@
 </details>
 
 <details>
-  <summary>Users</summary>
+  <summary>IAM Users</summary>
   
 An AWS IAM user is an entity that you create in AWS to represent the person or service that uses it to interact with AWS. You attach permission policies to the IAM user that determine what the user can and cannot do in AWS.
 Access keys are a combination of an access key ID and a secret access key that are assigned to a user. These can be used to make programmatic calls to AWS when using the API in program code or at a command prompt when using the AWS CLI.
 </details>
 
 <details>
-  <summary>Groups</summary>
+  <summary>IAM Groups</summary>
   
 NA
 </details>
 
 <details>
-  <summary>Policies (AWS Managed, Customer managed, Inline)</summary>
+  <summary>IAM Policies (AWS Managed, Customer managed, Inline)</summary>
   
 AWS Managed policies are common across all AWS customers. We can only use them but cannot modify/delete them. Customer-managed policies provide more precise control over your policies than AWS managed policies.
 </details>
 
 <details>
-  <summary>Roles (to be revisited)</summary>
+  <summary>IAM Roles (to be revisited)</summary>
   
 NA
 </details>
