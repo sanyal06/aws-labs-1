@@ -10,6 +10,7 @@
 -   Exploring the AWS Management Console
 -   Setting up free tier billing alerts
 -   AWS Documentation(https://docs.aws.amazon.com/index.html)
+-   Shared Responsibility Model(https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
 
 **IAM**
