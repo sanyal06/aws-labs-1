@@ -8,7 +8,7 @@
 -   Global Infrastructure
 -   Free tier account creation and coverage
 -   Exploring the AWS Management Console
--   Setting up free tier billig alerts
+-   Setting up free tier billing alerts
 
 
 **IAM**
