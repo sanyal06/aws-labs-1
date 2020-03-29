@@ -115,13 +115,17 @@ In the navigation pane find and click on 'Security Groups'
 
 Create two more security groups with following configurations --
 
-    * Security group name: My-DB-SG
-    * Description: This SG is to be used for database servers.
-    * VPC: MyVPC
-      
-    * Security group name: My-BastionHost-SG
-    * Description*: This SG is to be used for bastions hosts.
-    * VPC: MyVPC
+* Click on 'Create Security Group'
+  * Security group name: My-DB-SG
+  * Description: This SG is to be used for database servers.
+  * VPC: MyVPC
+* Click on Create
+
+* Click on 'Create Security Group'
+  * Security group name: My-BastionHost-SG
+  * Description*: This SG is to be used for bastions hosts.
+  * VPC: MyVPC
+* Click on Create
 
 Select either of the Security Group now and click on 'Inbound Rules' tab.
 Click on 'Edit Rules' and add rules for incoming traffic on the security groups like mentioned below.
