@@ -2,13 +2,13 @@
 
 ### Day01:
 
--   Basics of Cloud Computing
--   Introduction and History of AWS
--   Certification Roadmap
--   Global Infrastructure
--   Free tier account creation and coverage
+-   Basics of Cloud Computing [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
+-   [Introduction and History of AWS](https://techcrunch.com/2016/07/02/andy-jassys-brief-history-of-the-genesis-of-aws/)
+-   [Certification Roadmap](https://aws.amazon.com/certification/)
+-   [Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
+-   [Free tier account creation](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) and [coverage](https://aws.amazon.com/free/)
 -   Exploring the AWS Management Console
--   Setting up free tier billing alerts
+-   [Setting up free tier billing alerts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html)
 -   [AWS Documentation](https://docs.aws.amazon.com/index.html)
 -   [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
