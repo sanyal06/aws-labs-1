@@ -1,4 +1,3 @@
-
 # Deploying a Multi-Tier, Auto Scalable and Load Balanced Web Application using EC2 and RDS.
 
 By the end of this lab exercise you would have deployed a two tier PHP application that is highly available and on fault tolerant network infrastructure. This application uses Amazon RDS as a managed database to store the data.
@@ -173,7 +172,7 @@ Update the **My_LnxWebSG** security group settings as shown below.
 | HTTP  |   TCP    |     80     | Custom |  My_ELBSG  |
 | HTTPS |   TCP    |    443     | Custom |  My_ELBSG  |
 |  SSH  |   TCP    |     22     | Custom | My_WinBHSG |
-|  SSH  |   TCP    |     22     | Custom |  LnxBHSG>  |
+|  SSH  |   TCP    |     22     | Custom | My_LnxBHSG |
 
 If your application is reachable only through the load balancer endpoint and not through visiting the IP addresses or EC2 instances in browser, you have done it well.
 
