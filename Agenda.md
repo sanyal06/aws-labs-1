@@ -7,7 +7,7 @@
 -   [Introduction and History of AWS](https://techcrunch.com/2016/07/02/andy-jassys-brief-history-of-the-genesis-of-aws/)
 -   [Certification Roadmap](https://aws.amazon.com/certification/)
 -   [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
--   [Regions, Availability Zones and Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
+-   [Regions, Availability Zones, Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) and [Edge Network Locations](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/#AWS_Edge_Network_Locations)
 -   [Free tier account creation](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) and [coverage](https://aws.amazon.com/free/)
 -   Exploring the AWS Management Console
 -   [Setting up free tier billing alerts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html)
@@ -150,10 +150,12 @@ NA
 -   ECS, ECR, EKS
 -   Lambda
 
+[SAA-Lab03](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab03.md)
+
 **Miscellaneous**
 
--   Simple Monthly Calculator, TCO Calculator
--   Limits
+-   [Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html), [AWS TCO Calculator](https://awstcocalculator.com/)
+-   [AWS Services quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
 -   Scope of service e.g. Global, Regional and AZ resources
 -   Well-Architected Framework
 -   reInvent, breakout sessions, aws.training, whitepapers, customer use cases, this is my architecture
