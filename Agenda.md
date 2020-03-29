@@ -2,7 +2,8 @@
 
 ### Day01:
 
--   Basics of Cloud Computing [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
+-   Basics of Cloud Computing 
+-   [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
 -   [Introduction and History of AWS](https://techcrunch.com/2016/07/02/andy-jassys-brief-history-of-the-genesis-of-aws/)
 -   [Certification Roadmap](https://aws.amazon.com/certification/)
 -   [Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
