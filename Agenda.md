@@ -70,6 +70,8 @@ NA
     -   NACL vs SG
     -   Elastic IP
 
+[Lab01](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab01.md)
+
 **Compute**
 
 -   EC2
@@ -124,9 +126,8 @@ NA
 -   DynamoDB
 -   RedShift
 
-Lab02
+[Lab02](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab02.md)
 
--   Autoscaling and Load balancing
 
 
 ## Day 03:
