@@ -74,7 +74,7 @@ NA
 -   EC2
     -   Creation Modification, Deletion
     -   [Userdata, Metadata (Comparison)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
-    -   EC2 purchasing Options, Tenancy
+    -   [EC2 purchasing Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html), [Tenancy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html)
 
 **Automation**
 
