@@ -6,7 +6,8 @@
 -   [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
 -   [Introduction and History of AWS](https://techcrunch.com/2016/07/02/andy-jassys-brief-history-of-the-genesis-of-aws/)
 -   [Certification Roadmap](https://aws.amazon.com/certification/)
--   [Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
+-   [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
+-   [Regions, Availability Zones, and Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
 -   [Free tier account creation](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) and [coverage](https://aws.amazon.com/free/)
 -   Exploring the AWS Management Console
 -   [Setting up free tier billing alerts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html)
