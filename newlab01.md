@@ -153,7 +153,7 @@ Click on 'Edit Rules' and add rules for incoming traffic on the security groups 
 
 For now, our VPC configuration is complete. The instances launched in our public subnets should have outbound access to Internet and the instances in our private subnet should not. We would verify the same in the next section.
 
-VPC Lab -- Part 02 of 02
+VPC Lab - Part 02 of 02
 -----------------------
 
 #### Activity 05 - Creating EC2 instances
@@ -195,12 +195,12 @@ Go back to EC2 Dashboard now and click on Launch Instance.
 **Expand the Advance Details section and paste the following script in the user data section.**
 
 ```bash
- #!/bin/bash
- yum update -y
- yum install httpd -y
- systemctl start httpd
- systemctl enable httpd
- echo "Hello from EC2 instance ID: <b>$instanceid" > /var/www/html/index.html
+#!/bin/bash
+yum update -y
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+echo "Hello from EC2 instance ID: <b>$instanceid" > /var/www/html/index.html
 ```
 
 This script will –
