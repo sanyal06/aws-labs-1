@@ -1,5 +1,4 @@
 
-
 # Deploying a Multi-Tier, Auto Scalable and Load Balanced Web Application using EC2 and RDS.
 
 By the end of this lab exercise you would have deployed a production ready sample PHP application that is highly available and on fault tolerant network infrastructure. This application uses Amazon RDS as a managed database to store the data.
@@ -19,37 +18,41 @@ PS: This lab is in continuation from VPC Lab 01, you should already have the VPC
 
 ## Lab 02 – Part 01 of 02
 
-Creating the database and App server.
+Creating the database server and connecting to it from application server.
 
 ### Activity 01 – Creating an RDS instance
 
 Navigate to the RDS service in management console.
 
 Click on Create database.  
-Choose a database creation method: Standard Create.  
+Choose a database creation method: Standard Create  
 Engine options: MySQL  
 Templates: Free tier
 
 Settings -
+
 - DB instance identifier: inventory-db
 - Master username: master
-- Master password: lab-password 
+- Master password: lab-password
 
 DB instance size -  
+
 - DB instance class: db.t2.micro  
 
 Storage -  leave the defaults.
 
 Availability & durability -  
+
 - Multi-AZ deployment: Do not create a standby instance (Should be by default selected)
 
 Connectivity -  
+
 - Virtual Private Cloud (VPC): My_VPC
 - Subnet group: my_dbsubnetgroup  
 - Publicly accessible: No
 - VPC security groups: Choose existing VPC security groups. Add DBSG from the dropdown and remove the preselected default.
 - Availability zone: No preference
- 
+
 Additional Configuration -  
 
 - Initial database name: inventory
@@ -71,7 +74,7 @@ Return to the browser tab with the Inventory application and enter the below inf
 
 Click Save, the application will now connect to the database and will load some pre-fed sample data. Feel free to add, edit and delete inventory information using the web application.
 
-So as of now you have one single EC2 instance serving a web application, it is storing the data in a RDS database. But this instance is a manually created and what will happen if it goes down? The data might remain saved in the database but will be unavailable till the time the server is/are brought back. The process has to be an automated one rather than manual, EC2 auto scaling is the feature that comes to rescue here!
+So as of now you have one single EC2 instance serving a web application, it is storing the data in an RDS database. But this instance is a manually created and what will happen if it goes down? The data might remain saved in the database but will be unavailable till the time the server is/are brought back. The process has to be an automated one rather than manual, EC2 auto scaling is the feature that comes to rescue here!
 
 Since we have installed our application and did the configurtion already, let us save this as an image for our future use so we dont have to start from scrach.
 
@@ -126,7 +129,6 @@ But the end users would not have IP addresses to your server right? They should 
 
 ### Activity 05 - Creating an Application Load Balancer
 
-
 Go to the Load Balancing section of EC2 dashboard and click on Target Group
 
 - Create Target Group
@@ -162,16 +164,16 @@ Can you restrict it?
 
 ### Activity 06 – Modify the Security Groups to ensure security on incoming traffic
 
-Update the <b>My_LnxWebSG</b> security group settings as shown below.
+Update the **My_LnxWebSG** security group settings as shown below.
 
 #### My_LnxWebSG
 
-| Type  | Protocol | Port Range  | Source |   |
-| :---:   | :---:   | :---:   | :---:   | :---:   | 
-| HTTP  | TCP  | 80  | Custom  | \<SG ID of My_ELBSG>  |
-| HTTPS  | TCP  | 443  | Custom  | \<SG ID of My_ELBSG>  |
-| SSH  | TCP  | 22  | Custom  | \<SG ID of My_WinBHSG>  |
-| SSH  | TCP  | 22  | Custom  | \<SG ID of My_LnxBHSG>  |
+| Type  | Protocol | Port Range | Source |            |
+| :---: | :------: | :--------: | :----: | :--------: |
+| HTTP  |   TCP    |     80     | Custom |  My_ELBSG  |
+| HTTPS |   TCP    |    443     | Custom |  My_ELBSG  |
+|  SSH  |   TCP    |     22     | Custom | My_WinBHSG |
+|  SSH  |   TCP    |     22     | Custom |  LnxBHSG>  |
 
 If your application is reachable only through the load balancer endpoint and not through visiting the IP addresses or EC2 instances in browser, you have done it well.
 
@@ -189,4 +191,3 @@ Delete the resources in the below order
 ***All the services used in this lab are eligible and covered within the free tier account. There should not be any charge if you delete all the resources within a couple of hours of creation provided you have monthly limits left.***
 
 ### Lab Complete!
-
