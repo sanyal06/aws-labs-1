@@ -14,7 +14,7 @@
 - [AWS Documentation](https://docs.aws.amazon.com/index.html)
 - [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
-**[AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)**
+### [AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 
 <details>
   <summary>Owner's account AKA The root user</summary>
