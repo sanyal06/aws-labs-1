@@ -46,12 +46,16 @@ Resources:
             Tags: 
               - Key: Name
                 Value: !Join [_, [!Ref 'AWS::StackName', VPC]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     InternetGateway:
         Type: 'AWS::EC2::InternetGateway'
         Properties:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', IGW]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     InternetGatewayAttachment:
         Type: 'AWS::EC2::VPCGatewayAttachment'
         Properties:
@@ -67,6 +71,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', PubSub01]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     PubSub02:
         Type: 'AWS::EC2::Subnet'
         Properties:
@@ -77,6 +83,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', PubSub02]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     PvtSub01:
         Type: 'AWS::EC2::Subnet'
         Properties:
@@ -87,6 +95,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', PvtSub01]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     PvtSub02:
         Type: 'AWS::EC2::Subnet'
         Properties:
@@ -97,6 +107,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', PvtSub02]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     PublicRouteTable:
         Type: 'AWS::EC2::RouteTable'
         Properties:
@@ -104,6 +116,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', PubRT]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     DefaultPublicRoute:
         Type: 'AWS::EC2::Route'
         DependsOn: InternetGatewayAttachment
@@ -134,8 +148,10 @@ Resources:
             AllocationId: !GetAtt NatGateway01EIP.AllocationId
             SubnetId: !Ref PubSub01
             Tags:
-                - Key: Name
-                  Value: !Join [_, [!Ref 'AWS::StackName', NatGateway01]]
+              - Key: Name
+                Value: !Join [_, [!Ref 'AWS::StackName', NatGateway01]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     NatGateway02EIP:
         Type: AWS::EC2::EIP
         Condition: isRequired
@@ -149,15 +165,19 @@ Resources:
             AllocationId: !GetAtt NatGateway02EIP.AllocationId
             SubnetId: !Ref PubSub02
             Tags:
-                - Key: Name
-                  Value: !Join [_, [!Ref 'AWS::StackName', NatGateway02]]
+              - Key: Name
+                Value: !Join [_, [!Ref 'AWS::StackName', NatGateway02]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     PrivateRouteTable01:
         Type: AWS::EC2::RouteTable
         Properties: 
             VpcId: !Ref VPC
             Tags: 
-                - Key: Name 
-                  Value: !Join [_, [!Ref 'AWS::StackName', PvtRTable01]]
+              - Key: Name 
+                Value: !Join [_, [!Ref 'AWS::StackName', PvtRTable01]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     DefaultPrivateRoute01:
         Type: AWS::EC2::Route
         Condition: isRequired
@@ -175,8 +195,10 @@ Resources:
         Properties: 
             VpcId: !Ref VPC
             Tags: 
-                - Key: Name 
-                  Value: !Join [_, [!Ref 'AWS::StackName', PvtRTable02]]
+              - Key: Name 
+                Value: !Join [_, [!Ref 'AWS::StackName', PvtRTable02]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     DefaultPrivateRoute02:
         Type: AWS::EC2::Route
         Condition: isRequired
@@ -207,6 +229,32 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', ELBSG]]
+              - Key: Env
+                Value: !Ref EnvironmentName
+    OpenWebSG:
+        Type: 'AWS::EC2::SecurityGroup'
+        Properties:
+            GroupName: OpenWebSG
+            GroupDescription: 'Accepts web and remote access traffic from anywhere.'
+            VpcId: !Ref VPC
+            SecurityGroupIngress:
+              - IpProtocol: tcp
+                FromPort: 80
+                ToPort: 80
+                CidrIp: 0.0.0.0/0
+              - IpProtocol: tcp
+                FromPort: 22
+                ToPort: 22
+                CidrIp: 0.0.0.0/0
+              - IpProtocol: tcp
+                FromPort: 3389
+                ToPort: 3389
+                CidrIp: 0.0.0.0/0
+            Tags: 
+              - Key: Name 
+                Value: !Join [_, [!Ref 'AWS::StackName', OpenWebSG]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     WinWebSG:
         Type: 'AWS::EC2::SecurityGroup'
         Properties:
@@ -229,6 +277,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', WinWebSG]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     LnxWebSG:
         Type: 'AWS::EC2::SecurityGroup'
         Properties:
@@ -254,7 +304,9 @@ Resources:
                 SourceSecurityGroupId: !Ref LnxBHSG
             Tags: 
               - Key: Name 
-                Value: !Join [_, [!Ref 'AWS::StackName', LnxWebSG]]      
+                Value: !Join [_, [!Ref 'AWS::StackName', LnxWebSG]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     WinBHSG:
         Type: 'AWS::EC2::SecurityGroup'
         Properties:
@@ -269,6 +321,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', WinBHSG]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     LnxBHSG:
         Type: 'AWS::EC2::SecurityGroup'
         Properties:
@@ -283,6 +337,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', LnxBHSG]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     DBSG:
         Type: 'AWS::EC2::SecurityGroup'
         Properties:
@@ -296,7 +352,9 @@ Resources:
                 SourceSecurityGroupId: !Ref LnxWebSG
             Tags: 
               - Key: Name 
-                Value: !Join [_, [!Ref 'AWS::StackName', DBSG]]  
+                Value: !Join [_, [!Ref 'AWS::StackName', DBSG]]
+              - Key: Env
+                Value: !Ref EnvironmentName
     DBSubnetGroup:
         Type: "AWS::RDS::DBSubnetGroup"
         Properties: 
@@ -307,6 +365,8 @@ Resources:
             Tags: 
               - Key: Name 
                 Value: !Join [_, [!Ref 'AWS::StackName', DBSubnetGroup]]
+              - Key: Env
+                Value: !Ref EnvironmentName
 Outputs:
     VPC:
         Description: 'A reference to the created VPC'
