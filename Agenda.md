@@ -1,19 +1,18 @@
 # AWS-SAA
 
-### Day01:
+## Day01
 
--   Basics of Cloud Computing 
--   [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
--   [Introduction and History of AWS](https://techcrunch.com/2016/07/02/andy-jassys-brief-history-of-the-genesis-of-aws/)
--   [Certification Roadmap](https://aws.amazon.com/certification/)
--   [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
--   [Regions, Availability Zones, Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) and [Edge Network Locations](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/#AWS_Edge_Network_Locations)
--   [Free tier account creation](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) and [coverage](https://aws.amazon.com/free/)
--   Exploring the AWS Management Console
--   [Setting up free tier billing alerts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html)
--   [AWS Documentation](https://docs.aws.amazon.com/index.html)
--   [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
-
+- Basics of Cloud Computing 
+- [The NIST definition of cloud computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
+- [Introduction and History of AWS](https://techcrunch.com/2016/07/02/andy-jassys-brief-history-of-the-genesis-of-aws/)
+- [Certification Roadmap](https://aws.amazon.com/certification/)
+- [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
+- [Regions, Availability Zones, Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) and [Edge Network Locations](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/#AWS_Edge_Network_Locations)
+- [Free tier account creation](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) and [coverage](https://aws.amazon.com/free/)
+- Exploring the AWS Management Console
+- [Setting up free tier billing alerts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html)
+- [AWS Documentation](https://docs.aws.amazon.com/index.html)
+- [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
 **[AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)**
 
@@ -36,7 +35,6 @@ Access keys are a combination of an access key ID and a secret access key that a
   
   If you find that you'll have several users who need similar permissions, you can define an IAM Group and associate your users to the group.
   
-NA
 </details>
 
 <details>
@@ -59,104 +57,101 @@ NA
 NA
 </details>
 
-**Network**
+### Network
 
--   VPC
-    -   IGW
-    -   Subnets
-    -   RouteTables
-    -   NAT Gateway, NAT Instance; Comparison
-    -   NACL (Stateful)
-    -   Security Groups (Stateless)
-    -   NACL vs SG
-    -   Elastic IP
+- VPC
+  - IGW
+  - Subnets
+  - RouteTables
+  - NAT Gateway, NAT Instance; Comparison
+  - NACL (Stateful)
+  - Security Groups (Stateless)
+  - NACL vs SG
+  - Elastic IP
 
 [Lab01](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab01.md)
 
-**Compute**
+### Compute
 
--   EC2
-    -   Creation Modification, Deletion
-    -   [Userdata, Metadata (Comparison)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
-    -   [EC2 purchasing Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html), [Tenancy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html)
+- EC2
+  - Creation Modification, Deletion
+  - [Userdata, Metadata (Comparison)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
+  - [EC2 purchasing Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html), [Tenancy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html)
+  - Auto Scaling and Loadbalancing
 
-**Automation**
+## Day 02
 
--   Elastic Beanstalk (to be revisited)
--   CloudFormation
--   OpsWorks
+- VPC Peering, Transit Gateway
+- VPN Options
+- DirectConnect
+- VPC Endpoints (to be revisited)
 
+### Storage
 
-## Day 02:
+- EBS  
+  - Types  
+    - Creation, Modification, Snapshots, Deletion, Movement
+- S3
+  - Pricing
+  - Versioning
+  - Static Website Hosting
+  - Pre-signed url
+  - ACL and Bucket Policy
+  - S3 tiers
+  - CRR, Transfer Acceleration
+  - Life Cycle Policy
+- Glacier
+- CLI and Roles Lab
+- CloudFront
+- EFS
+- Storage Gateway
+- Snow family
 
+### Automation
 
--   VPC Peering, Transit Gateway
--   VPN Options
--   DirectConnect
--   VPC Endpoints (to be revisited)
+- CloudFormation
+- Elastic Beanstalk
+- OpsWorks
 
-**Storage**
+### Application Integration/Decoupling
 
--   EBS  
-    -   Types  
-    -   Creation, Modification, Snapshots, Deletion, Movement
--   S3
-    -   Pricing
-    -   Versioning
-    -   Static Website Hosting
-    -   Pre-signed url
-    -   ACL and Bucket Policy
-    -   S3 tiers
-    -   CRR, Transfer Acceleration
-    -   Life Cycle Policy
--   Glacier
+- SQS
+- SNS
+- SWF
+- SES
 
--   CLI and Roles Lab
-
--   CloudFront
--   EFS
--   Storage Gateway
--   Snow family
-
-**Databases**
-
--   RDS
-    -   Supported engines
-    -   Creation, modification and deletion
--   ElastiCache
--   DynamoDB
--   RedShift
 
 [Lab02](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab02.md)
 
+## Day 03
 
+### Databases
 
-## Day 03:
+- RDS
+  - Supported engines
+    - Creation, modification and deletion
+- ElastiCache
+- DynamoDB
+- RedShift
 
+### Others
 
--   Kinesis
--   Route 53
--   CloudWatch
--   CloudTrail
--   Trusted Advisor
--   HSM
-
-**Application Integration/Decoupling**
-
--   SQS
--   SNS
--   SWF
--   SES
--   ECS, ECR, EKS
--   Lambda
+- Kinesis
+- Route 53
+- CloudWatch
+- CloudTrail
+- Trusted Advisor
+- HSM
+- ECS, ECR, EKS
+- Lambda
 
 [SAA-Lab03](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab03.md)
 
-**Miscellaneous**
+### Wrap up
 
--   [Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html), [AWS TCO Calculator](https://awstcocalculator.com/)
--   [AWS Services quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
--   Scope of service e.g. Global, Regional and AZ resources
--   Well-Architected Framework
--   reInvent, breakout sessions, aws.training, whitepapers, customer use cases, this is my architecture
--   AWS Blog, AWS Online Tech Talks
+- [Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html), [AWS TCO Calculator](https://awstcocalculator.com/)
+- [AWS Services quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
+- Scope of service e.g. Global, Regional and AZ resources
+- Well-Architected Framework
+- reInvent, breakout sessions, aws.training, whitepapers, customer use cases, this is my architecture
+- AWS Blog, AWS Online Tech Talks
