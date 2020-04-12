@@ -64,8 +64,8 @@ NA
   - Subnets
   - RouteTables
   - NAT Gateway, NAT Instance; Comparison
-  - NACL (Stateful)
-  - Security Groups (Stateless)
+  - NACL (Stateless)
+  - Security Groups (Stateful)
   - NACL vs SG
   - Elastic IP
 
