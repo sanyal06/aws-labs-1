@@ -1,0 +1,3 @@
+sudo iscsiadm -m node -o new -T iqn.2015-12.com.oracleiaas:7283647f-d821-406a-91eb-65d4643993ab -p 169.254.2.2:3260
+sudo iscsiadm -m node -o update -T iqn.2015-12.com.oracleiaas:7283647f-d821-406a-91eb-65d4643993ab -n node.startup -v automatic
+sudo iscsiadm -m node -T iqn.2015-12.com.oracleiaas:7283647f-d821-406a-91eb-65d4643993ab -p 169.254.2.2:3260 -l
