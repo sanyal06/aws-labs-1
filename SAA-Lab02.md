@@ -44,7 +44,7 @@ Platform branch: Node.js running on 64bit Amazon Linux (ensure you do not select
 Platform version: 4.14.3
 Node.js version: 12.16.2
 
-In the Source Code Origin section, click on Local File and upload the zip that yu downloaded from [this link] (https://github.com/ashydv/FoodOnWings/raw/master/FoodOnWings.zip).
+In the Source Code Origin section, click on Local File and upload the zip that yu downloaded from [this link](https://github.com/ashydv/FoodOnWings/raw/master/FoodOnWings.zip).
 
 Click on 'Configure more options'
 
