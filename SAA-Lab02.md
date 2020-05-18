@@ -82,5 +82,3 @@ Click on Delete application
 
 
 Lab completed.
-
- [this](https://github.com/ashydv/FoodOnWings/raw/master/FoodOnWings.zip) zip file
