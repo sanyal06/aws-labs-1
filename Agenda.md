@@ -59,15 +59,15 @@ NA
 
 ### Network
 
-- VPC
-  - IGW
+- [VPC](https://aws.amazon.com/vpc/)
+  - [Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)
   - Subnets
   - RouteTables
   - NAT Gateway, NAT Instance; Comparison
-  - NACL (Stateless)
-  - Security Groups (Stateful)
+  - [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) (Stateless)
+  - [Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) (Stateful) 
   - NACL vs SG
-  - Elastic IP
+  - [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
 
 [Lab01](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab01.md)
 
@@ -88,7 +88,8 @@ NA
 
 ### Storage
 
-- EBS  
+- [Instance Stored Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+- [EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)  
   - Types  
     - Creation, Modification, Snapshots, Deletion, Movement
 - [S3](https://aws.amazon.com/s3/)
