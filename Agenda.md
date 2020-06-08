@@ -96,7 +96,7 @@ NA
   - Versioning
   - [Static Website Hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
   - Pre-signed url
-  - ACL and Bucket Policy
+  - [ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html) and [Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
   - [S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
   - CRR, Transfer Acceleration
   - Life Cycle Policy
