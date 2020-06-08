@@ -116,10 +116,10 @@ NA
 
 ### Application Integration/Decoupling
 
-- SQS
-- SNS
-- SWF
-- SES
+- [SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)
+- [SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)
+- [SWF](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-welcome.html)
+- [SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html)
 
 
 [Lab02](https://github.com/ashydv/aws-labs/blob/master/SAA-Lab02.md)
