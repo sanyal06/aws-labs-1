@@ -153,6 +153,6 @@ NA
 - [Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html), [AWS Pricing Calculator](https://calculator.aws/#/), [AWS TCO Calculator](https://awstcocalculator.com/)
 - [AWS Services quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
 - Scope of service e.g. Global, Regional and AZ resources
-- Well-Architected Framework
+- [Well-Architected Framework](https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf), [Online free training](https://www.aws.training/Details/Curriculum?id=42037)
 - [AWS Events](https://aws.amazon.com/events/), reInvent, breakout sessions, aws.training, [whitepapers](https://aws.amazon.com/whitepapers/?whitepapers/), [customer case studies](https://aws.amazon.com/solutions/case-studies/), [this is my architecture](https://aws.amazon.com/this-is-my-architecture/)
 - [AWS Blog](https://aws.amazon.com/blogs/aws/), [AWS Online Tech Talks](https://aws.amazon.com/events/online-tech-talks/)
