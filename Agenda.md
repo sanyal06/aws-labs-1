@@ -149,7 +149,7 @@ NA
 
 ### Wrap up
 
-- [Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html), [AWS TCO Calculator](https://awstcocalculator.com/)
+- [Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html), [AWS Pricing Calculator](https://calculator.aws/#/), [AWS TCO Calculator](https://awstcocalculator.com/)
 - [AWS Services quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
 - Scope of service e.g. Global, Regional and AZ resources
 - Well-Architected Framework
