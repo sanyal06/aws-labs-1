@@ -14,6 +14,10 @@
 - [AWS Documentation](https://docs.aws.amazon.com/index.html)
 - [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) (to be revisited)
 
+#### [AWS Documentation](https://docs.aws.amazon.com/index.html)
+#### [AWS Slideshare Channel](https://www.slideshare.net/AmazonWebServices)
+#### [hands-on tutorials](https://aws.amazon.com/getting-started/hands-on/)
+
 ### [AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 
 <details>
