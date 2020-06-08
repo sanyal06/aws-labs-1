@@ -95,7 +95,7 @@ NA
   - [Pricing](https://aws.amazon.com/s3/pricing/)
   - [Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html)
   - [Static Website Hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
-  - Pre-signed url
+  - [Pre-signed url](https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html)
   - [ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html) and [Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
   - [S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
   - [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html), [Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html)
