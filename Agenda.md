@@ -91,7 +91,7 @@ NA
 - EBS  
   - Types  
     - Creation, Modification, Snapshots, Deletion, Movement
-- S3
+- [S3](https://aws.amazon.com/s3/)
   - [Pricing](https://aws.amazon.com/s3/pricing/)
   - [Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html)
   - [Static Website Hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
