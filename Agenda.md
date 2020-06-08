@@ -73,7 +73,7 @@ NA
 
 ### Compute
 
-- EC2
+- [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
   - Creation Modification, Deletion
   - [Userdata, Metadata (Comparison)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
   - [EC2 purchasing Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html), [Tenancy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html)
@@ -81,10 +81,10 @@ NA
 
 ## Day 02
 
-- VPC Peering, Transit Gateway
-- VPN Options
-- DirectConnect
-- VPC Endpoints (to be revisited)
+- [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html), [Transit Gateway](https://aws.amazon.com/transit-gateway/)
+- [Site-to-Site VPN] (https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html)
+- [Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
+- [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) (to be revisited)
 
 ### Storage
 
@@ -101,11 +101,11 @@ NA
   - [S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
   - [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html), [Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html)
   - [Object lifecycle management]()https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
-- Glacier
+- [Glacier](https://aws.amazon.com/glacier/)
 - CLI and Roles Lab
-- CloudFront
-- EFS
-- Storage Gateway
+- [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+- [Elastic File System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEFS.html)
+- [Storage Gateway](https://aws.amazon.com/storagegateway/), [good blog post](https://aws.amazon.com/blogs/storage/cloud-storage-in-minutes-with-aws-storage-gateway/) 
 - Snow family
 
 ### Automation
