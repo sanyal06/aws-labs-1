@@ -98,8 +98,8 @@ NA
   - Pre-signed url
   - [ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html) and [Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
   - [S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
-  - CRR, Transfer Acceleration
-  - Life Cycle Policy
+  - [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html), [Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html)
+  - [Object lifecycle management]()https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
 - Glacier
 - CLI and Roles Lab
 - CloudFront
