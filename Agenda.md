@@ -97,7 +97,7 @@ NA
   - Static Website Hosting
   - Pre-signed url
   - ACL and Bucket Policy
-  - S3 tiers
+  - (S3 Storage Classes)[https://aws.amazon.com/s3/storage-classes/]
   - CRR, Transfer Acceleration
   - Life Cycle Policy
 - Glacier
