@@ -82,14 +82,14 @@ NA
 ## Day 02
 
 - [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html), [Transit Gateway](https://aws.amazon.com/transit-gateway/)
-- [Site-to-Site VPN] (https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html)
+- [Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html)
 - [Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
 - [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) (to be revisited)
 
 ### Storage
 
 - [Instance Stored Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
-- [EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)  
+- [EBS, EBS Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)  
   - Types  
     - Creation, Modification, Snapshots, Deletion, Movement
 - [S3](https://aws.amazon.com/s3/)
@@ -110,9 +110,9 @@ NA
 
 ### Automation
 
-- CloudFormation
-- Elastic Beanstalk
-- OpsWorks
+- [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)
+- [OpsWorks](https://docs.aws.amazon.com/opsworks/latest/userguide/welcome.html)
 
 ### Application Integration/Decoupling
 
@@ -154,5 +154,5 @@ NA
 - [AWS Services quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
 - Scope of service e.g. Global, Regional and AZ resources
 - Well-Architected Framework
-- reInvent, breakout sessions, aws.training, whitepapers, customer use cases, this is my architecture
-- AWS Blog, AWS Online Tech Talks
+- [AWS Events](https://aws.amazon.com/events/), reInvent, breakout sessions, aws.training, [whitepapers](https://aws.amazon.com/whitepapers/?whitepapers/), [customer case studies](https://aws.amazon.com/solutions/case-studies/), [this is my architecture](https://aws.amazon.com/this-is-my-architecture/)
+- [AWS Blog](https://aws.amazon.com/blogs/aws/), [AWS Online Tech Talks](https://aws.amazon.com/events/online-tech-talks/)
