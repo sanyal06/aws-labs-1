@@ -106,7 +106,7 @@ NA
 - [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 - [Elastic File System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEFS.html)
 - [Storage Gateway](https://aws.amazon.com/storagegateway/), [good blog post](https://aws.amazon.com/blogs/storage/cloud-storage-in-minutes-with-aws-storage-gateway/) 
-- Snow family
+- [Snowball](https://docs.aws.amazon.com/snowball/latest/ug/whatissnowball.html) and [Snowmobile](https://aws.amazon.com/snowmobile/)
 
 ### Automation
 
