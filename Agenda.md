@@ -93,7 +93,7 @@ NA
     - Creation, Modification, Snapshots, Deletion, Movement
 - S3
   - [Pricing](https://aws.amazon.com/s3/pricing/)
-  - Versioning
+  - [Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html)
   - [Static Website Hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
   - Pre-signed url
   - [ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html) and [Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
