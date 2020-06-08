@@ -92,7 +92,7 @@ NA
   - Types  
     - Creation, Modification, Snapshots, Deletion, Movement
 - S3
-  - Pricing
+  - [Pricing](https://aws.amazon.com/s3/pricing/)
   - Versioning
   - Static Website Hosting
   - Pre-signed url
