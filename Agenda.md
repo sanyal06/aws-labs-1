@@ -94,7 +94,7 @@ NA
 - S3
   - [Pricing](https://aws.amazon.com/s3/pricing/)
   - Versioning
-  - Static Website Hosting
+  - [Static Website Hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
   - Pre-signed url
   - ACL and Bucket Policy
   - [S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
