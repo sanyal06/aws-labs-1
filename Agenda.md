@@ -109,11 +109,11 @@ NA
   - [Object lifecycle management]()https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
 - [Glacier](https://aws.amazon.com/glacier/)
 - CLI and Roles Lab
-- [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 - [Elastic File System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEFS.html)
 - [Storage Gateway](https://aws.amazon.com/storagegateway/), [good blog post](https://aws.amazon.com/blogs/storage/cloud-storage-in-minutes-with-aws-storage-gateway/) 
 - [Snowball](https://docs.aws.amazon.com/snowball/latest/ug/whatissnowball.html) and [Snowmobile](https://aws.amazon.com/snowmobile/)
-
+- [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+- [WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) and [Shield](https://docs.aws.amazon.com/waf/latest/developerguide/shield-chapter.html)
 ### Automation
 
 - [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
