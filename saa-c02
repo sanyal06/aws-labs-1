@@ -1,0 +1,112 @@
+Compute
+EC2
+EC2 pricing model
+Standard Reserved Instances 
+Scheduled Reserved Instances 
+ASG
+Target tracking policy
+Simple scaling policy
+Step scaling
+Scheduled scaling policy 
+ALB
+NLB
+ECS
+Fargate
+Lambda
+HPC
+Placement Group
+
+Storage
+Instance Store
+EBS
+EBS Snapshot
+S3 Versioning
+S3 Static website hosting
+S3 ACL
+S3 bucket policy
+S3 tiers
+S3 lifecycle policy
+S3 encryption
+S3 transfer acceleration
+S3 presigned url
+S3 CRR
+S3 object lock
+S3 server access logging
+S3 accidental deletion
+EFS
+DFSR related service
+FSx
+FSx for Lustre
+Storage Gateway
+HPC relevant storage
+Glacier
+Snowball
+DataSync
+Consistency Model
+
+Database
+RDS
+Read Replica
+Aurora global database 
+DynamoDB
+DynamoDB Globle Tables
+ElastiCache
+Redis vs Memcached
+Redshift
+Athena
+Quicksight
+ACID compliance
+
+Networking
+VPC
+NACL
+Security Group
+VPC Peering
+VPN
+Direct Connect
+VPC Endpoints
+NAT Gateway
+ClassicLink 
+PrivateLink 
+Route 53
+Routing Policies
+Alias record
+geoproximity 
+Country level blocking
+CloudFront
+API gateway
+Globle Accelerator
+
+Security
+IAM
+MFA
+Permission boundary
+KMS
+CloudHSM
+WAF
+Shield
+CVE protection
+Secrets Manager
+Resource Access Manager 
+
+Application Integration
+SQS, features
+SNS
+
+Management & Governance
+Organizations
+SCP
+CloudWatch
+CloudTrail
+Trusted Advisor
+CloudFormation
+
+Analytics
+Kinesis Data Firehose
+Kinesis Data Streams
+Kinesis Data Analytics 
+
+Others
+stateless application
+decoupling
+
