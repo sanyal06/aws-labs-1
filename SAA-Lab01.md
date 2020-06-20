@@ -113,13 +113,7 @@ In the navigation pane find and click on 'Security Groups'
   * VPC: MyVPC
 * Click on Create
 
-Create two more security groups with following configurations --
-
-* Click on 'Create Security Group'
-  * Security group name: My-DB-SG
-  * Description: This SG is to be used for database servers.
-  * VPC: MyVPC
-* Click on Create
+Similarly create security groups for your DB and Loadbalancer layer.
 
 Select either of the Security Group now and click on 'Inbound Rules' tab.
 Click on 'Edit Rules' and add rules for incoming traffic on the security groups like mentioned below.
