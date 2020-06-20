@@ -1,3 +1,33 @@
+Security
+IAM
+MFA
+Permission boundary
+KMS
+CloudHSM
+WAF
+Shield
+Resource Access Manager 
+
+Networking
+VPC
+NACL
+Security Group
+VPC Peering
+VPN
+Direct Connect
+VPC Endpoints
+NAT Gateway
+ClassicLink 
+PrivateLink 
+Route 53
+Routing Policies
+Alias record
+geoproximity 
+Country level blocking
+CloudFront
+API gateway
+Globle Accelerator
+
 Compute
 EC2
 EC2 pricing model
@@ -34,7 +64,6 @@ S3 object lock
 S3 server access logging
 S3 accidental deletion
 EFS
-DFSR related service
 FSx
 FSx for Lustre
 Storage Gateway
@@ -53,41 +82,7 @@ DynamoDB Globle Tables
 ElastiCache
 Redis vs Memcached
 Redshift
-Athena
-Quicksight
 ACID compliance
-
-Networking
-VPC
-NACL
-Security Group
-VPC Peering
-VPN
-Direct Connect
-VPC Endpoints
-NAT Gateway
-ClassicLink 
-PrivateLink 
-Route 53
-Routing Policies
-Alias record
-geoproximity 
-Country level blocking
-CloudFront
-API gateway
-Globle Accelerator
-
-Security
-IAM
-MFA
-Permission boundary
-KMS
-CloudHSM
-WAF
-Shield
-CVE protection
-Secrets Manager
-Resource Access Manager 
 
 Application Integration
 SQS, features
@@ -95,7 +90,7 @@ SNS
 
 Management & Governance
 Organizations
-SCP
+Service Control Policies
 CloudWatch
 CloudTrail
 Trusted Advisor
@@ -109,4 +104,5 @@ Kinesis Data Analytics
 Others
 stateless application
 decoupling
-
+Athena
+Quicksight
